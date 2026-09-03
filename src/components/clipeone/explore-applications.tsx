@@ -85,13 +85,13 @@ const WEBSITES: WebsiteEntry[] = [
     category: "Tourism",
   },
   {
-    name: "Fafa AFM Online",
+    name: "Fafaa Fm",
     url: "https://fafaafmonline.com/",
     domain: "fafaafmonline.com",
     category: "Faith",
   },
   {
-    name: "Duamene Fafa Foundation",
+    name: "Duamenefa Foundation",
     url: "https://www.duamenefafafoundation.org/",
     domain: "duamenefafafoundation.org",
     category: "Foundation",
