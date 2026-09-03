@@ -44,15 +44,21 @@ export function Sidebar() {
         <p className="text-xs font-bold uppercase tracking-wider text-[#9ca3af]">
           My Organization
         </p>
-        <div className="mt-3 flex items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f3f4f6] text-[#0a1f3d]">
-            <Building2 className="h-6 w-6" />
-          </span>
-          <div className="flex flex-col">
-            <p className="text-sm font-bold text-[#111827]">Clipe Consult</p>
-            <p className="text-xs text-[#6b7280]">Head Office</p>
-          </div>
-        </div>
+        <a
+          href="https://clipeconsult.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 block rounded-lg border border-[#e5e7eb] bg-[#f8fafc] p-3 transition-all hover:border-[#0a1f3d]/20 hover:bg-white hover:shadow-soft"
+          aria-label="Visit Clipe Consult website"
+        >
+          <img
+            src="/clipeone/clipe-consult-logo.png"
+            alt="Clipe Consult — Building Innovations | Engineering Excellence"
+            width={354}
+            height={177}
+            className="block w-full object-contain"
+          />
+        </a>
       </div>
 
       {/* Announcements */}
