@@ -1,54 +1,19 @@
 "use client";
 
-import { Mail, Phone, MapPin, ChevronRight } from "lucide-react";
-
-const FOOTER_COLUMNS = [
-  {
-    title: "Platform",
-    links: [
-      "My Applications",
-      "Explore Categories",
-      "Pricing",
-      "Integrations",
-      "What's New",
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      "Government",
-      "Business",
-      "Education",
-      "Health",
-      "Finance",
-      "Hospitality",
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      "Documentation",
-      "API Reference",
-      "Help Centre",
-      "Community",
-      "Status",
-    ],
-  },
-  {
-    title: "Company",
-    links: ["About ClipeOne", "Careers", "Partners", "Contact", "Blog"],
-  },
-];
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export function AppFooter() {
   return (
     <footer className="mt-6 border-t border-[#e5e7eb] bg-white">
-      {/* Main */}
-      <div className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-10">
+      <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:items-start lg:justify-between lg:text-left">
           {/* Brand */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-2">
-            <a href="#" className="flex items-center gap-2.5" aria-label="ClipeOne home">
+          <div className="flex flex-col items-center gap-3 lg:items-start">
+            <a
+              href="#"
+              className="flex items-center gap-2.5"
+              aria-label="ClipeOne home"
+            >
               <img
                 src="/clipeone/logo.png"
                 alt="ClipeOne logo"
@@ -66,50 +31,27 @@ export function AppFooter() {
                 </span>
               </span>
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#6b7280]">
+            <p className="max-w-xs text-sm leading-relaxed text-[#6b7280]">
               The unified platform to discover, subscribe, and manage every
               software application your organization needs.
             </p>
-
-            <ul className="mt-5 flex flex-col gap-2 text-sm text-[#6b7280]">
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#e31e24]" />
-                support@clipeone.com
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[#e31e24]" />
-                +233 30 123 4567
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-[#e31e24]" />
-                Accra · Lagos · Nairobi
-              </li>
-            </ul>
           </div>
 
-          {/* Link columns */}
-          {FOOTER_COLUMNS.map((col) => (
-            <div key={col.title}>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#9ca3af]">
-                {col.title}
-              </p>
-              <ul className="mt-4 flex flex-col gap-2.5">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="group inline-flex items-center gap-1 text-sm text-[#6b7280] transition-colors hover:text-[#e31e24]"
-                    >
-                      <ChevronRight className="h-3 w-3 text-[#e31e24] opacity-0 transition-opacity group-hover:opacity-100" />
-                      <span className="-ml-1 transition-all group-hover:ml-0">
-                        {link}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Contact */}
+          <ul className="flex flex-col gap-2 text-sm text-[#6b7280] lg:items-end lg:text-right">
+            <li className="flex items-center gap-2 lg:flex-row-reverse">
+              <Mail className="h-4 w-4 text-[#e31e24]" />
+              support@clipeone.com
+            </li>
+            <li className="flex items-center gap-2 lg:flex-row-reverse">
+              <Phone className="h-4 w-4 text-[#e31e24]" />
+              +233 30 123 4567
+            </li>
+            <li className="flex items-center gap-2 lg:flex-row-reverse">
+              <MapPin className="h-4 w-4 text-[#e31e24]" />
+              Accra · Lagos · Nairobi
+            </li>
+          </ul>
         </div>
       </div>
 
