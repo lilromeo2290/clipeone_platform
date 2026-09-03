@@ -109,48 +109,37 @@ export function Sidebar() {
       </div>
 
       {/* Need Help CTA — primary */}
-      <div className="relative overflow-hidden rounded-xl bg-[#0a1f3d] p-5 text-white shadow-soft-lg">
-        <div className="absolute inset-0 hero-stars opacity-50" />
-        <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-[#e31e24]/20 blur-2xl" />
-        <div className="relative">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/5">
-            <Headphones className="h-7 w-7 text-white" />
-          </span>
-          <p className="mt-4 text-lg font-bold">Need Help?</p>
-          <p className="mt-1 text-sm leading-relaxed text-white/75">
-            Our support team is ready to assist you with any question, any time.
-          </p>
-          <button
-            type="button"
-            className="mt-4 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md bg-white px-4 text-sm font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6]"
-          >
-            Create Support Ticket
-            <ArrowRight className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
+      <NeedHelpCard />
 
       {/* Need Help CTA — duplicate (same size as above) */}
-      <div className="relative overflow-hidden rounded-xl bg-[#0a1f3d] p-5 text-white shadow-soft-lg">
-        <div className="absolute inset-0 hero-stars opacity-50" />
-        <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-[#e31e24]/20 blur-2xl" />
-        <div className="relative">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/5">
-            <Headphones className="h-7 w-7 text-white" />
-          </span>
-          <p className="mt-4 text-lg font-bold">Need Help?</p>
-          <p className="mt-1 text-sm leading-relaxed text-white/75">
+      <NeedHelpCard />
+    </aside>
+  );
+}
+
+function NeedHelpCard() {
+  return (
+    <div className="relative overflow-hidden rounded-xl bg-[#0a1f3d] p-3.5 text-white shadow-soft-lg">
+      <div className="absolute inset-0 hero-stars opacity-50" />
+      <div className="absolute -top-10 -right-10 h-24 w-24 rounded-full bg-[#e31e24]/20 blur-2xl" />
+      <div className="relative flex items-start gap-3">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5">
+          <Headphones className="h-5 w-5 text-white" />
+        </span>
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <p className="text-sm font-bold leading-tight">Need Help?</p>
+          <p className="text-[11px] leading-snug text-white/70">
             Our support team is ready to assist you with any question, any time.
           </p>
-          <button
-            type="button"
-            className="mt-4 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md bg-white px-4 text-sm font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6]"
-          >
-            Create Support Ticket
-            <ArrowRight className="h-4 w-4" />
-          </button>
         </div>
       </div>
-    </aside>
+      <button
+        type="button"
+        className="relative mt-3 inline-flex min-h-9 w-full items-center justify-center gap-1.5 rounded-md bg-white px-3 text-xs font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6]"
+      >
+        Create Support Ticket
+        <ArrowRight className="h-3.5 w-3.5" />
+      </button>
+    </div>
   );
 }
