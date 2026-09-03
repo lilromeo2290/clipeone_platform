@@ -3,34 +3,93 @@
 import { ArrowRight, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-const SLIDES = [
+interface Slide {
+  label: string;
+  title: React.ReactNode;
+  sub: string;
+  primary: string;
+  secondary: string;
+  image: {
+    src: string;
+    alt: string;
+    captionTitle: string;
+    captionSub: string;
+    badge: string;
+  };
+}
+
+const SLIDES: Slide[] = [
   {
     label: "Welcome to",
-    title: <>ClipeOne <span className="text-white">Platform</span></>,
+    title: (
+      <>
+        ClipeOne <span className="text-white">Platform</span>
+      </>
+    ),
     sub: "One powerful platform to discover, subscribe, and use the best software solutions for your organization or business.",
     primary: "Explore Applications",
     secondary: "How It Works",
+    image: {
+      src: "/clipeone/hero-image.png",
+      alt: "Clipe Consult headquarters — modern corporate office building",
+      captionTitle: "Clipe Consult · Head Office",
+      captionSub: "Home of the ClipeOne Platform",
+      badge: "HQ",
+    },
   },
   {
     label: "Discover",
-    title: <>Everything <span className="text-white">in one place</span></>,
+    title: (
+      <>
+        Everything <span className="text-white">in one place</span>
+      </>
+    ),
     sub: "From government revenue tools to HR, accounting, school and inventory apps — manage every subscription from a single dashboard.",
     primary: "Browse Categories",
     secondary: "Watch Demo",
+    image: {
+      src: "/clipeone/hero-monitor.png",
+      alt: "Code editor building a Clipe Consult website in real time",
+      captionTitle: "Built by Developers",
+      captionSub: "Real code, live preview, ship in minutes",
+      badge: "DEV",
+    },
   },
   {
     label: "Scale",
-    title: <>Built to <span className="text-white">grow with you</span></>,
+    title: (
+      <>
+        Built to <span className="text-white">grow with you</span>
+      </>
+    ),
     sub: "Add users, switch plans, and integrate new applications as your organization expands. No hidden costs, no lock-in.",
     primary: "View Plans",
     secondary: "Talk to Sales",
+    image: {
+      src: "/clipeone/hero-image.png",
+      alt: "Clipe Consult headquarters — modern corporate office building",
+      captionTitle: "Clipe Consult · Head Office",
+      captionSub: "Built to scale across regions",
+      badge: "HQ",
+    },
   },
   {
     label: "Trusted",
-    title: <>Secure by <span className="text-white">default</span></>,
+    title: (
+      <>
+        Secure by <span className="text-white">default</span>
+      </>
+    ),
     sub: "Enterprise-grade encryption, role-based access, and 24/7 monitoring keep your data safe across every ClipeOne application.",
     primary: "Security Overview",
     secondary: "Compliance",
+    image: {
+      src: "/clipeone/hero-monitor.png",
+      alt: "Code editor showing the secure ClipeOne codebase",
+      captionTitle: "Engineered for Trust",
+      captionSub: "Audited code, monitored 24/7",
+      badge: "SEC",
+    },
   },
 ];
 
@@ -123,9 +182,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right hero image */}
+          {/* Right hero image — synced to active slide */}
           <div className="lg:col-span-5 animate-fade-in">
-            <HeroImage />
+            <HeroImage slide={slide} active={active} />
           </div>
         </div>
       </div>
@@ -133,7 +192,7 @@ export function Hero() {
   );
 }
 
-function HeroImage() {
+function HeroImage({ slide, active }: { slide: Slide; active: number }) {
   return (
     <div className="relative mx-auto max-w-md lg:max-w-none">
       {/* Glow */}
@@ -145,14 +204,21 @@ function HeroImage() {
         <div className="absolute left-1/2 top-0 z-20 h-1 w-24 -translate-x-1/2 rounded-b-full bg-gradient-to-r from-transparent via-[#e31e24] to-transparent" />
 
         <div className="relative overflow-hidden rounded-xl">
-          <img
-            src="/clipeone/hero-image.png"
-            alt="Clipe Consult headquarters — modern corporate office building"
-            width={1536}
-            height={1024}
-            className="block w-full select-none object-cover aspect-[3/2]"
-            draggable={false}
-          />
+          {/* Stacked images — crossfade between slides */}
+          {SLIDES.map((s, idx) => (
+            <img
+              key={idx}
+              src={s.image.src}
+              alt={s.image.alt}
+              width={1536}
+              height={1024}
+              draggable={false}
+              className={`block w-full select-none object-cover aspect-[3/2] transition-opacity duration-700 ${
+                idx === active ? "opacity-100" : "absolute inset-0 opacity-0"
+              }`}
+            />
+          ))}
+
           {/* Subtle navy tint at edges to blend with hero bg */}
           <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a1f3d]/40 to-transparent" />
@@ -172,19 +238,22 @@ function HeroImage() {
             </span>
           </div>
 
-          {/* Bottom caption */}
-          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#0a1f3d]/70 px-3 py-2 backdrop-blur-md">
+          {/* Bottom caption — keyed to active slide so it crossfades */}
+          <div
+            key={active}
+            className="absolute inset-x-3 bottom-3 flex animate-fade-in items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#0a1f3d]/70 px-3 py-2 backdrop-blur-md"
+          >
             <div className="min-w-0">
               <p className="truncate text-xs font-bold text-white">
-                Clipe Consult · Head Office
+                {slide.image.captionTitle}
               </p>
               <p className="truncate text-[10px] text-white/70">
-                Home of the ClipeOne Platform
+                {slide.image.captionSub}
               </p>
             </div>
             <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#e31e24] px-2.5 py-1 text-[10px] font-bold text-white">
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              HQ
+              {slide.image.badge}
             </span>
           </div>
         </div>
