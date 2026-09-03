@@ -170,8 +170,11 @@ export function AppHeader() {
             />
           </div>
           <div className="mt-3 flex flex-col gap-2">
-            <p className="px-1 text-[10px] font-bold uppercase tracking-wider text-[#9ca3af]">
-              Call / WhatsApp us
+            <p className="inline-flex items-center gap-1.5 px-1 text-[10px] font-bold uppercase tracking-wider text-[#0a1f3d]">
+              <Headphones className="h-3 w-3 text-[#e31e24]" />
+              Support Centre
+              <span className="text-[#9ca3af]">·</span>
+              <span className="text-[#059669]">24/7 Support</span>
             </p>
             {[PHONE_1, PHONE_2].map((num) => (
               <div
