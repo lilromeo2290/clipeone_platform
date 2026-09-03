@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
             {/* Right sidebar */}
-            <div className="lg:col-span-3 lg:flex lg:h-full lg:flex-col">
+            <div className="lg:col-span-3">
               <Sidebar />
             </div>
           </div>
