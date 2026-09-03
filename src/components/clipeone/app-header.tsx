@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Bell, ChevronDown, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export function AppHeader() {
@@ -55,36 +55,8 @@ export function AppHeader() {
           />
         </div>
 
-        {/* Right actions */}
-        <div className="ml-auto flex items-center gap-1.5 sm:gap-2.5">
-          <button
-            type="button"
-            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-[#6b7280] transition-colors hover:bg-[#f3f4f6] hover:text-[#111827]"
-            aria-label="Notifications"
-          >
-            <Bell className="h-5 w-5" />
-            <span className="absolute right-2 top-2 inline-flex h-2 w-2 rounded-full bg-[#e31e24] ring-2 ring-white" />
-          </button>
-
-          {/* User chip */}
-          <button
-            type="button"
-            className="hidden items-center gap-2 rounded-full border border-[#e5e7eb] py-1 pl-1 pr-2.5 transition-colors hover:bg-[#f3f4f6] sm:inline-flex"
-            aria-label="Account menu"
-          >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#0a1f3d] to-[#1e3a8a] text-xs font-bold text-white">
-              KC
-            </span>
-            <span className="flex flex-col items-start leading-tight">
-              <span className="text-xs font-semibold text-[#111827]">
-                Kwame C.
-              </span>
-              <span className="text-[10px] text-[#6b7280]">Admin</span>
-            </span>
-            <ChevronDown className="h-4 w-4 text-[#9ca3af]" />
-          </button>
-
-          {/* Mobile toggle */}
+        {/* Right actions — mobile menu toggle only */}
+        <div className="ml-auto flex items-center gap-2.5">
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
