@@ -45,11 +45,11 @@ export function AppFooter() {
             </li>
             <li className="flex items-center gap-2 lg:flex-row-reverse">
               <Phone className="h-4 w-4 text-[#e31e24]" />
-              +233 30 123 4567
+              +233 24 978 3736
             </li>
             <li className="flex items-center gap-2 lg:flex-row-reverse">
               <MapPin className="h-4 w-4 text-[#e31e24]" />
-              Accra · Lagos · Nairobi
+              Ho · Volta Region · Ghana
             </li>
           </ul>
         </div>
