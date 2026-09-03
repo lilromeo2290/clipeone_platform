@@ -6,6 +6,9 @@ import {
   ShieldCheck,
   Headphones,
   ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
 } from "lucide-react";
 
 const ANNOUNCEMENTS = [
