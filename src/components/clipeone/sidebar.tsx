@@ -2,36 +2,12 @@
 
 import {
   Building2,
-  Users,
-  LayoutGrid,
-  FolderOpen,
   Bell,
   Rocket,
   ShieldCheck,
   Headphones,
   ArrowRight,
 } from "lucide-react";
-
-const STATS = [
-  {
-    icon: <Users className="h-5 w-5" />,
-    label: "Users",
-    value: 24,
-    color: "#1e3a8a",
-  },
-  {
-    icon: <LayoutGrid className="h-5 w-5" />,
-    label: "Applications",
-    value: 4,
-    color: "#059669",
-  },
-  {
-    icon: <FolderOpen className="h-5 w-5" />,
-    label: "Subscriptions",
-    value: 4,
-    color: "#f97316",
-  },
-];
 
 const ANNOUNCEMENTS = [
   {
@@ -76,35 +52,6 @@ export function Sidebar() {
             <p className="text-sm font-bold text-[#111827]">Clipe Consult</p>
             <p className="text-xs text-[#6b7280]">Head Office</p>
           </div>
-        </div>
-      </div>
-
-      {/* Stats row */}
-      <div className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-soft">
-        <div className="grid grid-cols-3 gap-2">
-          {STATS.map((s) => (
-            <div
-              key={s.label}
-              className="flex flex-col items-center gap-1 rounded-lg p-2 text-center"
-            >
-              <span
-                className="flex h-9 w-9 items-center justify-center rounded-full"
-                style={{ backgroundColor: `${s.color}15`, color: s.color }}
-              >
-                {s.icon}
-              </span>
-              <p className="text-lg font-extrabold leading-none text-[#111827]">
-                {s.value}
-              </p>
-              <p className="text-[10px] font-medium text-[#6b7280]">{s.label}</p>
-              <a
-                href="#"
-                className="mt-0.5 text-[10px] font-semibold text-[#2563eb] hover:underline"
-              >
-                View all
-              </a>
-            </div>
-          ))}
         </div>
       </div>
 
