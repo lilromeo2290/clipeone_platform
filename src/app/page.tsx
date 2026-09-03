@@ -7,6 +7,7 @@ import { ExploreApplications } from "@/components/clipeone/explore-applications"
 import { TrustBar } from "@/components/clipeone/trust-bar";
 import { Sidebar } from "@/components/clipeone/sidebar";
 import { AppFooter } from "@/components/clipeone/app-footer";
+import { NeedHelpBanner } from "@/components/clipeone/need-help-banner";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
               <MyApplications />
               <ExploreApplications />
               <TrustBar />
+              <NeedHelpBanner />
             </div>
 
             {/* Right sidebar */}
