@@ -37,7 +37,7 @@ const ANNOUNCEMENTS = [
 
 export function Sidebar() {
   return (
-    <aside className="flex flex-col gap-4">
+    <aside className="flex flex-col gap-4 lg:h-full">
       {/* My Organization */}
       <div className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-soft">
         <p className="text-xs font-bold uppercase tracking-wider text-[#9ca3af]">
@@ -108,11 +108,11 @@ export function Sidebar() {
         </a>
       </div>
 
-      {/* Need Help CTA — primary */}
-      <NeedHelpCard />
-
-      {/* Need Help CTA — duplicate (same size as above) */}
-      <NeedHelpCard />
+      {/* Need Help cards — pinned to bottom of sidebar so they sit below the TrustBar level */}
+      <div className="mt-auto flex flex-col gap-4">
+        <NeedHelpCard />
+        <NeedHelpCard />
+      </div>
     </aside>
   );
 }
