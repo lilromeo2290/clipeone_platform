@@ -107,7 +107,7 @@ export function ExploreApplications() {
       <header className="mb-5 flex items-center justify-between gap-4">
         <div>
           <h2 className="text-lg font-bold tracking-tight text-[#111827] sm:text-xl">
-            Websites and Services
+            Websites and Platforms
           </h2>
           <p className="mt-0.5 text-xs text-[#6b7280] sm:text-sm">
             Browse by industry and discover the right solution
