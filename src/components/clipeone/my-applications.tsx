@@ -3,7 +3,6 @@
 import {
   Building2,
   Calculator,
-  Users,
   GraduationCap,
   ArrowRight,
 } from "lucide-react";
@@ -29,13 +28,6 @@ const APPS: App[] = [
     tagline: "Accounting & Finance",
     icon: <Calculator className="h-6 w-6" />,
     color: "#059669",
-    status: "Pending",
-  },
-  {
-    name: "ClipeHR",
-    tagline: "Human Resources",
-    icon: <Users className="h-6 w-6" />,
-    color: "#7c3aed",
     status: "Pending",
   },
   {
