@@ -6,9 +6,6 @@ import {
   ShieldCheck,
   Headphones,
   ArrowRight,
-  Mail,
-  Phone,
-  MapPin,
 } from "lucide-react";
 
 const ANNOUNCEMENTS = [
@@ -133,7 +130,7 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Need Help CTA — duplicate with contact write-up */}
+      {/* Need Help CTA — duplicate (same size as above) */}
       <div className="relative overflow-hidden rounded-xl bg-[#0a1f3d] p-5 text-white shadow-soft-lg">
         <div className="absolute inset-0 hero-stars opacity-50" />
         <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-[#e31e24]/20 blur-2xl" />
@@ -141,37 +138,17 @@ export function Sidebar() {
           <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/5">
             <Headphones className="h-7 w-7 text-white" />
           </span>
-          <p className="mt-4 text-lg font-bold">Contact Us</p>
+          <p className="mt-4 text-lg font-bold">Need Help?</p>
           <p className="mt-1 text-sm leading-relaxed text-white/75">
-            Reach out by email, phone, or visit our office — we typically
-            respond in under five minutes.
+            Our support team is ready to assist you with any question, any time.
           </p>
-
-          {/* Contact write-up */}
-          <ul className="mt-4 flex flex-col gap-2 text-sm text-white/85">
-            <li>
-              <a
-                href="mailto:support@clipeone.com"
-                className="inline-flex items-center gap-2 transition-colors hover:text-white"
-              >
-                <Mail className="h-4 w-4 shrink-0 text-[#e31e24]" />
-                support@clipeone.com
-              </a>
-            </li>
-            <li>
-              <a
-                href="tel:+233249783637"
-                className="inline-flex items-center gap-2 transition-colors hover:text-white"
-              >
-                <Phone className="h-4 w-4 shrink-0 text-[#e31e24]" />
-                +233 24 978 3736
-              </a>
-            </li>
-            <li className="inline-flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-[#e31e24]" />
-              Ho · Volta Region · Ghana
-            </li>
-          </ul>
+          <button
+            type="button"
+            className="mt-4 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md bg-white px-4 text-sm font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6]"
+          >
+            Create Support Ticket
+            <ArrowRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </aside>
