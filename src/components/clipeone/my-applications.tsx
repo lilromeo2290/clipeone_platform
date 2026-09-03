@@ -13,6 +13,8 @@ interface App {
   icon: React.ReactNode;
   color: string;
   status: "Active" | "Trial" | "Expired" | "Pending";
+  href: string;
+  external?: boolean;
 }
 
 const APPS: App[] = [
@@ -22,6 +24,8 @@ const APPS: App[] = [
     icon: <Building2 className="h-6 w-6" />,
     color: "#1e3a8a",
     status: "Active",
+    href: "https://rms.clipeconsult.com/",
+    external: true,
   },
   {
     name: "ClipeBooks",
@@ -29,6 +33,7 @@ const APPS: App[] = [
     icon: <Calculator className="h-6 w-6" />,
     color: "#059669",
     status: "Pending",
+    href: "#",
   },
   {
     name: "ClipeSchool",
@@ -36,6 +41,7 @@ const APPS: App[] = [
     icon: <GraduationCap className="h-6 w-6" />,
     color: "#dc2626",
     status: "Pending",
+    href: "#",
   },
 ];
 
@@ -71,7 +77,10 @@ export function MyApplications() {
         {APPS.map((app) => (
           <a
             key={app.name}
-            href="#"
+            href={app.href}
+            {...(app.external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             className="group flex flex-col gap-3 rounded-lg border border-[#e5e7eb] bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
           >
             <div className="flex items-start justify-between">
