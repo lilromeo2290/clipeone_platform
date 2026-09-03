@@ -47,7 +47,7 @@ export function Sidebar() {
           href="https://clipeconsult.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 block rounded-lg border border-[#e5e7eb] bg-[#f8fafc] p-3 transition-all hover:border-[#0a1f3d]/20 hover:bg-white hover:shadow-soft"
+          className="mt-3 block rounded-lg border border-[#e5e7eb] bg-white p-3 transition-all hover:border-[#0a1f3d]/20 hover:shadow-soft"
           aria-label="Visit Clipe Consult website"
         >
           <img
@@ -55,7 +55,7 @@ export function Sidebar() {
             alt="Clipe Consult — Building Innovations | Engineering Excellence"
             width={354}
             height={177}
-            className="block w-full object-contain"
+            className="block h-auto max-h-20 w-full object-contain"
           />
         </a>
       </div>
