@@ -111,34 +111,58 @@ export function Sidebar() {
       {/* Need Help cards — pinned to bottom of sidebar so they sit below the TrustBar level */}
       <div className="mt-auto flex flex-col gap-4">
         <NeedHelpCard />
-        <NeedHelpCard />
+        <NeedHelpCard tall />
       </div>
     </aside>
   );
 }
 
-function NeedHelpCard() {
+function NeedHelpCard({ tall = false }: { tall?: boolean }) {
   return (
-    <div className="relative overflow-hidden rounded-xl bg-[#0a1f3d] p-3.5 text-white shadow-soft-lg">
+    <div
+      className={`relative overflow-hidden rounded-xl bg-[#0a1f3d] text-white shadow-soft-lg ${
+        tall ? "p-6" : "p-3.5"
+      }`}
+    >
       <div className="absolute inset-0 hero-stars opacity-50" />
-      <div className="absolute -top-10 -right-10 h-24 w-24 rounded-full bg-[#e31e24]/20 blur-2xl" />
+      <div
+        className={`absolute rounded-full bg-[#e31e24]/20 blur-2xl ${
+          tall ? "-top-16 -right-16 h-40 w-40" : "-top-10 -right-10 h-24 w-24"
+        }`}
+      />
       <div className="relative flex items-start gap-3">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5">
-          <Headphones className="h-5 w-5 text-white" />
+        <span
+          className={`flex shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 ${
+            tall ? "h-14 w-14" : "h-9 w-9"
+          }`}
+        >
+          <Headphones className={tall ? "h-8 w-8 text-white" : "h-5 w-5 text-white"} />
         </span>
-        <div className="flex min-w-0 flex-col gap-0.5">
-          <p className="text-sm font-bold leading-tight">Need Help?</p>
-          <p className="text-[11px] leading-snug text-white/70">
+        <div className="flex min-w-0 flex-col gap-1">
+          <p
+            className={`font-bold leading-tight ${
+              tall ? "text-lg" : "text-sm"
+            }`}
+          >
+            Need Help?
+          </p>
+          <p
+            className={`leading-snug text-white/70 ${
+              tall ? "text-sm" : "text-[11px]"
+            }`}
+          >
             Our support team is ready to assist you with any question, any time.
           </p>
         </div>
       </div>
       <button
         type="button"
-        className="relative mt-3 inline-flex min-h-9 w-full items-center justify-center gap-1.5 rounded-md bg-white px-3 text-xs font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6]"
+        className={`relative mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-white font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6] ${
+          tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
+        }`}
       >
         Create Support Ticket
-        <ArrowRight className="h-3.5 w-3.5" />
+        <ArrowRight className={tall ? "h-4 w-4" : "h-3.5 w-3.5"} />
       </button>
     </div>
   );
