@@ -15,6 +15,8 @@ interface App {
   status: "Active" | "Trial" | "Expired" | "Pending";
   href: string;
   external?: boolean;
+  preview?: string;
+  previewAlt?: string;
 }
 
 const APPS: App[] = [
@@ -26,6 +28,9 @@ const APPS: App[] = [
     status: "Active",
     href: "https://rms.clipeconsult.com/",
     external: true,
+    preview: "/clipeone/clipegov-rms-preview.png",
+    previewAlt:
+      "ClipeGov RMS login screen — Kpando Municipal Assembly revenue management system",
   },
   {
     name: "ClipeBooks",
@@ -81,8 +86,27 @@ export function MyApplications() {
             {...(app.external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="group flex flex-col gap-3 rounded-lg border border-[#e5e7eb] bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
+            className="group flex flex-col gap-3 overflow-hidden rounded-lg border border-[#e5e7eb] bg-white transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
           >
+            {/* Optional preview image */}
+            {app.preview && (
+              <div className="relative aspect-[4/3] overflow-hidden border-b border-[#e5e7eb] bg-[#f8fafc]">
+                <img
+                  src={app.preview}
+                  alt={app.previewAlt || app.name}
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                {/* Color tint overlay matching the app color */}
+                <div
+                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  style={{
+                    background: `linear-gradient(to top, ${app.color}30, transparent 60%)`,
+                  }}
+                />
+              </div>
+            )}
+            <div className="flex flex-col gap-3 p-3.5">
             <div className="flex items-start justify-between">
               <span
                 className="flex h-11 w-11 items-center justify-center rounded-lg text-white shadow-sm"
@@ -103,6 +127,7 @@ export function MyApplications() {
               <p className="text-[11px] leading-snug text-[#6b7280]">
                 {app.tagline}
               </p>
+            </div>
             </div>
           </a>
         ))}
