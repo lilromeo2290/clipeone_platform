@@ -22,13 +22,13 @@ const STATS = [
   {
     icon: <LayoutGrid className="h-5 w-5" />,
     label: "Applications",
-    value: 6,
+    value: 4,
     color: "#059669",
   },
   {
     icon: <FolderOpen className="h-5 w-5" />,
     label: "Subscriptions",
-    value: 6,
+    value: 4,
     color: "#f97316",
   },
 ];

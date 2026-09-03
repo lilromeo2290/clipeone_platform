@@ -4,8 +4,6 @@ import {
   Building2,
   Calculator,
   Users,
-  ShoppingCart,
-  ClipboardCheck,
   GraduationCap,
   ArrowRight,
 } from "lucide-react";
@@ -38,20 +36,6 @@ const APPS: App[] = [
     tagline: "Human Resources",
     icon: <Users className="h-6 w-6" />,
     color: "#7c3aed",
-    status: "Active",
-  },
-  {
-    name: "ClipeInventory",
-    tagline: "Stock & Warehouse",
-    icon: <ShoppingCart className="h-6 w-6" />,
-    color: "#f97316",
-    status: "Trial",
-  },
-  {
-    name: "ClipeProject",
-    tagline: "Project Management",
-    icon: <ClipboardCheck className="h-6 w-6" />,
-    color: "#2563eb",
     status: "Active",
   },
   {
@@ -90,7 +74,7 @@ export function MyApplications() {
         </a>
       </header>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
         {APPS.map((app) => (
           <a
             key={app.name}
