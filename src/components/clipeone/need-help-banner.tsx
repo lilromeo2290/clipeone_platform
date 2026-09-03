@@ -1,6 +1,6 @@
 "use client";
 
-import { Headphones, ArrowRight, Mail, Phone } from "lucide-react";
+import { Headphones, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 
 export function NeedHelpBanner() {
   return (
@@ -61,11 +61,35 @@ export function NeedHelpBanner() {
               WhatsApp
             </a>
           </div>
-          <p className="mt-1 text-center text-[11px] text-white/55 lg:text-right">
-            024 978 3637 · 053 539 9562
-          </p>
+        </div>
+      </div>
+
+      {/* Contact write-up bar */}
+      <div className="relative border-t border-white/10 bg-[#061528]/60 px-6 py-4 sm:px-8 lg:px-10">
+        <div className="flex flex-col items-center gap-3 text-sm text-white/80 sm:flex-row sm:items-center sm:justify-center sm:gap-6 lg:gap-8">
+          <a
+            href="mailto:support@clipeone.com"
+            className="inline-flex items-center gap-2 transition-colors hover:text-white"
+          >
+            <Mail className="h-4 w-4 text-[#e31e24]" />
+            support@clipeone.com
+          </a>
+          <span className="hidden h-4 w-px bg-white/15 sm:inline-block" />
+          <a
+            href="tel:+233249783637"
+            className="inline-flex items-center gap-2 transition-colors hover:text-white"
+          >
+            <Phone className="h-4 w-4 text-[#e31e24]" />
+            +233 24 978 3736
+          </a>
+          <span className="hidden h-4 w-px bg-white/15 sm:inline-block" />
+          <span className="inline-flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-[#e31e24]" />
+            Ho · Volta Region · Ghana
+          </span>
         </div>
       </div>
     </section>
   );
 }
+
