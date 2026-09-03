@@ -1,16 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  Building2,
-  Briefcase,
-  GraduationCap,
-  HeartPulse,
-  Landmark,
-  Hotel,
-  LayoutGrid,
-  ArrowRight,
-} from "lucide-react";
+import { Globe, LayoutGrid, ArrowRight } from "lucide-react";
 
 interface Category {
   name: string;
@@ -19,77 +10,31 @@ interface Category {
   icon: React.ReactNode;
   color: string;
   tag: string;
+  metricLabel: string;
 }
 
 const CATEGORIES: Category[] = [
   {
-    name: "Government",
-    desc: "Public sector tools for revenue, permits, and citizen services.",
+    name: "Websites",
+    desc: "Public-facing websites, portals, and online presence for organizations and businesses.",
     count: 18,
-    icon: <Building2 className="h-5 w-5" />,
+    icon: <Globe className="h-5 w-5" />,
     color: "#1e3a8a",
-    tag: "Government",
+    tag: "Websites",
+    metricLabel: "Websites",
   },
   {
-    name: "Business",
-    desc: "Operations, sales, CRM, and inventory for growing companies.",
+    name: "Platforms",
+    desc: "Operational platforms, dashboards, and internal systems for growing companies.",
     count: 24,
-    icon: <Briefcase className="h-5 w-5" />,
-    color: "#f97316",
-    tag: "Business",
-  },
-  {
-    name: "Education",
-    desc: "School, campus, and learning management for every level.",
-    count: 12,
-    icon: <GraduationCap className="h-5 w-5" />,
-    color: "#dc2626",
-    tag: "Education",
-  },
-  {
-    name: "Health",
-    desc: "Clinic, hospital, and patient management applications.",
-    count: 9,
-    icon: <HeartPulse className="h-5 w-5" />,
-    color: "#0d9488",
-    tag: "Health",
-  },
-  {
-    name: "Finance",
-    desc: "Accounting, payments, and reporting for finance teams.",
-    count: 15,
-    icon: <Landmark className="h-5 w-5" />,
-    color: "#059669",
-    tag: "Finance",
-  },
-  {
-    name: "Hospitality",
-    desc: "Hotels, restaurants, and guest-experience solutions.",
-    count: 7,
-    icon: <Hotel className="h-5 w-5" />,
-    color: "#7c3aed",
-    tag: "Hospitality",
-  },
-  {
-    name: "Other",
-    desc: "Specialized tools that don't fit a single industry vertical.",
-    count: 11,
     icon: <LayoutGrid className="h-5 w-5" />,
-    color: "#475569",
-    tag: "Other",
+    color: "#f97316",
+    tag: "Platforms",
+    metricLabel: "Platforms",
   },
 ];
 
-const TABS = [
-  "All Categories",
-  "Government",
-  "Business",
-  "Education",
-  "Health",
-  "Finance",
-  "Hospitality",
-  "Other",
-];
+const TABS = ["All Categories", "Websites", "Platforms"];
 
 export function ExploreApplications() {
   const [active, setActive] = useState("All Categories");
@@ -110,7 +55,7 @@ export function ExploreApplications() {
             Websites and Platforms
           </h2>
           <p className="mt-0.5 text-xs text-[#6b7280] sm:text-sm">
-            Browse by industry and discover the right solution
+            Browse our websites and platforms to find the right solution
           </p>
         </div>
         <a
@@ -144,7 +89,7 @@ export function ExploreApplications() {
       </div>
 
       {/* Category cards */}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {filtered.map((cat) => (
           <article
             key={cat.name}
@@ -162,7 +107,7 @@ export function ExploreApplications() {
                   {cat.name}
                 </p>
                 <p className="text-xs font-semibold text-[#2563eb]">
-                  {cat.count} Applications
+                  {cat.count} {cat.metricLabel}
                 </p>
               </div>
             </div>
