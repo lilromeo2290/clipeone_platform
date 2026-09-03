@@ -123,9 +123,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right laptop mockup */}
+          {/* Right hero image */}
           <div className="lg:col-span-5 animate-fade-in">
-            <LaptopMockup />
+            <HeroImage />
           </div>
         </div>
       </div>
@@ -133,69 +133,61 @@ export function Hero() {
   );
 }
 
-function LaptopMockup() {
+function HeroImage() {
   return (
     <div className="relative mx-auto max-w-md lg:max-w-none">
       {/* Glow */}
-      <div className="absolute inset-0 -z-10 translate-y-6 scale-95 rounded-[2rem] bg-[#e31e24]/20 blur-3xl" />
+      <div className="absolute inset-0 -z-10 translate-y-6 scale-95 rounded-[2rem] bg-[#e31e24]/25 blur-3xl" />
 
-      {/* Laptop screen */}
-      <div className="relative rounded-t-xl border border-white/10 bg-[#0a1f3d] p-3 shadow-2xl">
-        <div className="overflow-hidden rounded-lg bg-white">
-          {/* Browser bar */}
-          <div className="flex items-center gap-1.5 border-b border-[#e5e7eb] bg-[#f8fafc] px-3 py-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#e31e24]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#f59e0b]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#059669]" />
-            <span className="ml-2 h-5 flex-1 rounded-full bg-white" />
+      {/* Framed image card */}
+      <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#0a1f3d] p-2 shadow-2xl shadow-black/40">
+        {/* Top accent bar */}
+        <div className="absolute left-1/2 top-0 z-20 h-1 w-24 -translate-x-1/2 rounded-b-full bg-gradient-to-r from-transparent via-[#e31e24] to-transparent" />
+
+        <div className="relative overflow-hidden rounded-xl">
+          <img
+            src="/clipeone/hero-image.png"
+            alt="Clipe Consult headquarters — modern corporate office building"
+            width={1536}
+            height={1024}
+            className="block w-full select-none object-cover aspect-[3/2]"
+            draggable={false}
+          />
+          {/* Subtle navy tint at edges to blend with hero bg */}
+          <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a1f3d]/40 to-transparent" />
+
+          {/* Corner badge — logo + name */}
+          <div className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1f3d]/70 px-3 py-1.5 backdrop-blur-md">
+            <img
+              src="/clipeone/logo.png"
+              alt=""
+              width={20}
+              height={20}
+              className="h-5 w-5 rounded object-cover"
+            />
+            <span className="text-xs font-extrabold tracking-tight text-white">
+              <span className="text-white">CLIPE</span>
+              <span className="text-[#e31e24]">ONE</span>
+            </span>
           </div>
-          {/* Screen body */}
-          <div className="relative flex h-56 flex-col items-center justify-center bg-gradient-to-br from-[#f8fafc] to-white px-6 sm:h-64">
-            {/* Logo lockup */}
-            <div className="flex flex-col items-center text-center">
-              <img
-                src="/clipeone/logo.png"
-                alt="ClipeOne logo"
-                width={72}
-                height={72}
-                className="h-16 w-16 rounded-xl object-cover shadow-lg sm:h-[4.5rem] sm:w-[4.5rem]"
-              />
-              <span className="mt-3 text-2xl font-extrabold tracking-tight">
-                <span className="text-[#0a1f3d]">CLIPE</span>
-                <span className="text-[#e31e24]">ONE</span>
-              </span>
-              <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6b7280]">
-                One Platform. Every Solution.
-              </span>
-            </div>
 
-            {/* Red wave graphic */}
-            <svg
-              viewBox="0 0 400 60"
-              preserveAspectRatio="none"
-              className="absolute bottom-0 left-0 h-10 w-full text-[#e31e24]"
-              aria-hidden="true"
-            >
-              <path
-                d="M0,30 C50,60 100,0 150,30 C200,60 250,0 300,30 C350,60 400,10 400,30 L400,60 L0,60 Z"
-                fill="currentColor"
-                fillOpacity="0.15"
-              />
-              <path
-                d="M0,40 C50,10 100,60 150,40 C200,10 250,60 300,40 C350,10 400,40 400,40 L400,60 L0,60 Z"
-                fill="currentColor"
-                fillOpacity="0.4"
-              />
-            </svg>
+          {/* Bottom caption */}
+          <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-[#0a1f3d]/70 px-3 py-2 backdrop-blur-md">
+            <div className="min-w-0">
+              <p className="truncate text-xs font-bold text-white">
+                Clipe Consult · Head Office
+              </p>
+              <p className="truncate text-[10px] text-white/70">
+                Home of the ClipeOne Platform
+              </p>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#e31e24] px-2.5 py-1 text-[10px] font-bold text-white">
+              <span className="h-1.5 w-1.5 rounded-full bg-white" />
+              HQ
+            </span>
           </div>
         </div>
-      </div>
-
-      {/* Laptop base */}
-      <div className="relative">
-        <div className="h-2 rounded-b-xl bg-gradient-to-b from-[#1f2937] to-[#0a1f3d]" />
-        <div className="mx-auto h-1.5 w-24 rounded-b-lg bg-[#1f2937]" />
-        <div className="mx-auto h-1 w-44 rounded-b-md bg-[#0a1f3d]" />
       </div>
     </div>
   );
