@@ -11,17 +11,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Placement Portal — Smart, Fair & Transparent School Placement",
+  title: "ClipeOne Platform — One Platform. Every Solution.",
   description:
-    "Easily check your senior high school placement status. Enter your index number and date of birth to view your school placement. Fast, secure, and accessible 24/7.",
+    "Discover, subscribe, and manage the best software applications for your organization or business. ClipeOne brings every solution into one powerful platform.",
   keywords: [
-    "school placement",
-    "SHS placement",
-    "education portal",
-    "student placement",
-    "placement checker",
+    "ClipeOne",
+    "SaaS platform",
+    "business applications",
+    "software marketplace",
+    "enterprise solutions",
   ],
-  authors: [{ name: "Placement Portal" }],
+  authors: [{ name: "ClipeOne" }],
   icons: {
     icon: "/logo.svg",
   },
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased bg-white text-[#0c294c]`}
+        className={`${inter.variable} font-sans antialiased bg-[#f8fafc] text-[#111827]`}
       >
         {children}
         <Toaster />

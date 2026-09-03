@@ -1,0 +1,182 @@
+"use client";
+
+import {
+  Building2,
+  Users,
+  LayoutGrid,
+  FolderOpen,
+  Bell,
+  Rocket,
+  ShieldCheck,
+  Headphones,
+  ArrowRight,
+} from "lucide-react";
+
+const STATS = [
+  {
+    icon: <Users className="h-5 w-5" />,
+    label: "Users",
+    value: 24,
+    color: "#1e3a8a",
+  },
+  {
+    icon: <LayoutGrid className="h-5 w-5" />,
+    label: "Applications",
+    value: 6,
+    color: "#059669",
+  },
+  {
+    icon: <FolderOpen className="h-5 w-5" />,
+    label: "Subscriptions",
+    value: 6,
+    color: "#f97316",
+  },
+];
+
+const ANNOUNCEMENTS = [
+  {
+    icon: <Bell className="h-4 w-4" />,
+    title: "System Maintenance Notice",
+    desc: "Scheduled downtime on May 25, 02:00 – 04:00 UTC for security patches.",
+    date: "May 20, 2025",
+    color: "#e31e24",
+    bg: "#fee2e2",
+  },
+  {
+    icon: <Rocket className="h-4 w-4" />,
+    title: "New Application Added",
+    desc: "ClipePay is now available — accept payments across every ClipeOne app.",
+    date: "May 18, 2025",
+    color: "#2563eb",
+    bg: "#dbeafe",
+  },
+  {
+    icon: <ShieldCheck className="h-4 w-4" />,
+    title: "Security Update",
+    desc: "Two-factor authentication is now mandatory for all admin accounts.",
+    date: "May 15, 2025",
+    color: "#059669",
+    bg: "#d1fae5",
+  },
+];
+
+export function Sidebar() {
+  return (
+    <aside className="flex flex-col gap-4">
+      {/* My Organization */}
+      <div className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-soft">
+        <p className="text-xs font-bold uppercase tracking-wider text-[#9ca3af]">
+          My Organization
+        </p>
+        <div className="mt-3 flex items-center gap-3">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f3f4f6] text-[#0a1f3d]">
+            <Building2 className="h-6 w-6" />
+          </span>
+          <div className="flex flex-col">
+            <p className="text-sm font-bold text-[#111827]">Clipe Consult</p>
+            <p className="text-xs text-[#6b7280]">Head Office</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats row */}
+      <div className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-soft">
+        <div className="grid grid-cols-3 gap-2">
+          {STATS.map((s) => (
+            <div
+              key={s.label}
+              className="flex flex-col items-center gap-1 rounded-lg p-2 text-center"
+            >
+              <span
+                className="flex h-9 w-9 items-center justify-center rounded-full"
+                style={{ backgroundColor: `${s.color}15`, color: s.color }}
+              >
+                {s.icon}
+              </span>
+              <p className="text-lg font-extrabold leading-none text-[#111827]">
+                {s.value}
+              </p>
+              <p className="text-[10px] font-medium text-[#6b7280]">{s.label}</p>
+              <a
+                href="#"
+                className="mt-0.5 text-[10px] font-semibold text-[#2563eb] hover:underline"
+              >
+                View all
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Announcements */}
+      <div className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-soft">
+        <header className="mb-3 flex items-center justify-between">
+          <p className="text-sm font-bold text-[#111827]">Announcements</p>
+          <a
+            href="#"
+            className="text-xs font-semibold text-[#e31e24] hover:text-[#b9141a]"
+          >
+            View All
+          </a>
+        </header>
+        <ul className="flex flex-col gap-3">
+          {ANNOUNCEMENTS.map((a, idx) => (
+            <li
+              key={idx}
+              className="group flex gap-3 rounded-lg p-2 transition-colors hover:bg-[#f8fafc]"
+            >
+              <span
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                style={{ backgroundColor: a.bg, color: a.color }}
+              >
+                {a.icon}
+              </span>
+              <div className="flex min-w-0 flex-col gap-0.5">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="truncate text-sm font-bold text-[#111827]">
+                    {a.title}
+                  </p>
+                  <span className="shrink-0 text-[10px] font-medium text-[#9ca3af]">
+                    {a.date}
+                  </span>
+                </div>
+                <p className="text-[11px] leading-snug text-[#6b7280]">
+                  {a.desc}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#"
+          className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#e31e24] hover:text-[#b9141a]"
+        >
+          More Announcements
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      </div>
+
+      {/* Need Help CTA */}
+      <div className="relative overflow-hidden rounded-xl bg-[#0a1f3d] p-5 text-white shadow-soft-lg">
+        <div className="absolute inset-0 hero-stars opacity-50" />
+        <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-[#e31e24]/20 blur-2xl" />
+        <div className="relative">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/5">
+            <Headphones className="h-7 w-7 text-white" />
+          </span>
+          <p className="mt-4 text-lg font-bold">Need Help?</p>
+          <p className="mt-1 text-sm leading-relaxed text-white/75">
+            Our support team is ready to assist you with any question, any time.
+          </p>
+          <button
+            type="button"
+            className="mt-4 inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-md bg-white px-4 text-sm font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6]"
+          >
+            Create Support Ticket
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    </aside>
+  );
+}
