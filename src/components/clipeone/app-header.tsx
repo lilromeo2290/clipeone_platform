@@ -16,7 +16,7 @@ export function AppHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#e5e7eb] bg-white">
-      <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-16 max-w-[1440px] items-center gap-4 px-4 py-2 sm:px-6 lg:px-8">
         {/* Logo */}
         <a
           href="#"
@@ -52,51 +52,60 @@ export function AppHeader() {
           />
         </div>
 
-        {/* Right actions — Call / WhatsApp + mobile toggle */}
+        {/* Right actions — Support Centre label + Call / WhatsApp + mobile toggle */}
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
-          <div className="hidden items-stretch gap-2 md:flex">
-            {/* Phone 1 — Call + WhatsApp */}
-            <div className="flex items-center gap-1 rounded-full border border-[#e5e7eb] bg-white p-1 transition-colors hover:border-[#0a1f3d]/20">
-              <a
-                href={telHref(PHONE_1)}
-                aria-label={`Call ${PHONE_1}`}
-                className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#0a1f3d] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1e3a8a]"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                Call
-              </a>
-              <a
-                href={waHref(PHONE_1)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`WhatsApp ${PHONE_1}`}
-                className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#25D366] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1ebe57]"
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                {PHONE_1}
-              </a>
-            </div>
+          {/* Desktop: label above phone buttons */}
+          <div className="hidden flex-col items-end gap-1 md:flex">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#0a1f3d]">
+              <Headphones className="h-3 w-3 text-[#e31e24]" />
+              Support Centre
+              <span className="text-[#9ca3af]">·</span>
+              <span className="text-[#059669]">24/7 Support</span>
+            </span>
+            <div className="flex items-stretch gap-2">
+              {/* Phone 1 — Call + WhatsApp */}
+              <div className="flex items-center gap-1 rounded-full border border-[#e5e7eb] bg-white p-1 transition-colors hover:border-[#0a1f3d]/20">
+                <a
+                  href={telHref(PHONE_1)}
+                  aria-label={`Call ${PHONE_1}`}
+                  className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#0a1f3d] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1e3a8a]"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  Call
+                </a>
+                <a
+                  href={waHref(PHONE_1)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`WhatsApp ${PHONE_1}`}
+                  className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#25D366] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                >
+                  <MessageCircle className="h-3.5 w-3.5" />
+                  {PHONE_1}
+                </a>
+              </div>
 
-            {/* Phone 2 — Call + WhatsApp */}
-            <div className="flex items-center gap-1 rounded-full border border-[#e5e7eb] bg-white p-1 transition-colors hover:border-[#0a1f3d]/20">
-              <a
-                href={telHref(PHONE_2)}
-                aria-label={`Call ${PHONE_2}`}
-                className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#0a1f3d] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1e3a8a]"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                Call
-              </a>
-              <a
-                href={waHref(PHONE_2)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`WhatsApp ${PHONE_2}`}
-                className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#25D366] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1ebe57]"
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                {PHONE_2}
-              </a>
+              {/* Phone 2 — Call + WhatsApp */}
+              <div className="flex items-center gap-1 rounded-full border border-[#e5e7eb] bg-white p-1 transition-colors hover:border-[#0a1f3d]/20">
+                <a
+                  href={telHref(PHONE_2)}
+                  aria-label={`Call ${PHONE_2}`}
+                  className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#0a1f3d] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1e3a8a]"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  Call
+                </a>
+                <a
+                  href={waHref(PHONE_2)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`WhatsApp ${PHONE_2}`}
+                  className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#25D366] px-3 text-xs font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                >
+                  <MessageCircle className="h-3.5 w-3.5" />
+                  {PHONE_2}
+                </a>
+              </div>
             </div>
           </div>
 
