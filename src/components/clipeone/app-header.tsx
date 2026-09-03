@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Search, Menu, X, Phone, MessageCircle, Headphones } from "lucide-react";
 import { useState } from "react";
 
 const PHONE_1 = "024 978 3637";
