@@ -56,21 +56,21 @@ const SLIDES: Slide[] = [
     },
   },
   {
-    label: "Scale",
+    label: "Deployed",
     title: (
       <>
-        Built to <span className="text-white">grow with you</span>
+        Powering <span className="text-white">real assemblies</span>
       </>
     ),
-    sub: "Add users, switch plans, and integrate new applications as your organization expands. No hidden costs, no lock-in.",
-    primary: "View Plans",
-    secondary: "Talk to Sales",
+    sub: "From metropolitan to municipal and district assemblies, ClipeGov RMS is in production today — collecting revenue, serving citizens, and running 24/7.",
+    primary: "See Live Deployment",
+    secondary: "Case Studies",
     image: {
-      src: "/clipeone/hero-image.png",
-      alt: "Clipe Consult headquarters — modern corporate office building",
-      captionTitle: "Clipe Consult · Head Office",
-      captionSub: "Built to scale across regions",
-      badge: "HQ",
+      src: "/clipeone/hero-screenshot.png",
+      alt: "ClipeGov RMS login screen deployed for Kpando Municipal Assembly",
+      captionTitle: "Kpando Municipal Assembly",
+      captionSub: "Live ClipeGov RMS deployment · V1.0",
+      badge: "LIVE",
     },
   },
   {
