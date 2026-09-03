@@ -153,29 +153,13 @@ function LaptopMockup() {
           <div className="relative flex h-56 flex-col items-center justify-center bg-gradient-to-br from-[#f8fafc] to-white px-6 sm:h-64">
             {/* Logo lockup */}
             <div className="flex flex-col items-center text-center">
-              <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[#0a1f3d] to-[#1e3a8a] shadow-lg">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-9 w-9"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"
-                    stroke="#e31e24"
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                    fill="rgba(227,30,36,0.15)"
-                  />
-                  <path
-                    d="M8.5 10.5a3.5 3.5 0 1 1 0 3"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              <img
+                src="/clipeone/logo.png"
+                alt="ClipeOne logo"
+                width={72}
+                height={72}
+                className="h-16 w-16 rounded-xl object-cover shadow-lg sm:h-[4.5rem] sm:w-[4.5rem]"
+              />
               <span className="mt-3 text-2xl font-extrabold tracking-tight">
                 <span className="text-[#0a1f3d]">CLIPE</span>
                 <span className="text-[#e31e24]">ONE</span>

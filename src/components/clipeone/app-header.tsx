@@ -23,24 +23,13 @@ export function AppHeader() {
           aria-label="ClipeOne home"
           className="flex shrink-0 items-center gap-2.5"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br from-[#0a1f3d] to-[#1e3a8a] text-white">
-            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
-              <path
-                d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"
-                stroke="#e31e24"
-                strokeWidth="2"
-                strokeLinejoin="round"
-                fill="rgba(227,30,36,0.15)"
-              />
-              <path
-                d="M8.5 10.5a3.5 3.5 0 1 1 0 3"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+          <img
+            src="/clipeone/logo.png"
+            alt="ClipeOne logo"
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-md object-cover"
+          />
           <span className="flex flex-col leading-none">
             <span className="text-lg font-extrabold tracking-tight">
               <span className="text-[#0a1f3d]">CLIPE</span>
