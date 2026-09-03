@@ -111,16 +111,23 @@ export function Sidebar() {
         </a>
       </div>
 
-      {/* Need Help cards — sit directly under Announcements, no gap */}
+      {/* Need Help cards — first shows contact write-up, second shows ticket CTA */}
       <div className="flex flex-col gap-4">
-        <NeedHelpCard tall />
+        <NeedHelpCard tall variant="contact" />
         <NeedHelpCard tall />
       </div>
     </aside>
   );
 }
 
-function NeedHelpCard({ tall = false }: { tall?: boolean }) {
+function NeedHelpCard({
+  tall = false,
+  variant = "ticket",
+}: {
+  tall?: boolean;
+  variant?: "ticket" | "contact";
+}) {
+  const isContact = variant === "contact";
   return (
     <div
       className={`relative overflow-hidden rounded-xl bg-[#0a1f3d] text-white shadow-soft-lg ${
@@ -147,26 +154,69 @@ function NeedHelpCard({ tall = false }: { tall?: boolean }) {
               tall ? "text-lg" : "text-sm"
             }`}
           >
-            Need Help?
+            {isContact ? "Contact Us" : "Need Help?"}
           </p>
           <p
             className={`leading-snug text-white/70 ${
               tall ? "text-sm" : "text-[11px]"
             }`}
           >
-            Our support team is ready to assist you with any question, any time.
+            {isContact
+              ? "Reach out by email, phone, or visit our office — we typically respond in under five minutes."
+              : "Our support team is ready to assist you with any question, any time."}
           </p>
         </div>
       </div>
-      <button
-        type="button"
-        className={`relative mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-white font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6] ${
-          tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
-        }`}
-      >
-        Create Support Ticket
-        <ArrowRight className={tall ? "h-4 w-4" : "h-3.5 w-3.5"} />
-      </button>
+
+      {isContact ? (
+        <ul
+          className={`relative mt-4 flex flex-col gap-2 text-white/85 ${
+            tall ? "text-sm" : "text-[11px]"
+          }`}
+        >
+          <li>
+            <a
+              href="mailto:support@clipeone.com"
+              className="inline-flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Mail className={`shrink-0 text-[#e31e24] ${tall ? "h-4 w-4" : "h-3.5 w-3.5"}`} />
+              <span>
+                <span className="text-white/60">Email: </span>
+                support@clipeone.com
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="tel:+233249783637"
+              className="inline-flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Phone className={`shrink-0 text-[#e31e24] ${tall ? "h-4 w-4" : "h-3.5 w-3.5"}`} />
+              <span>
+                <span className="text-white/60">Phone: </span>
+                +233 24 978 3736
+              </span>
+            </a>
+          </li>
+          <li className="inline-flex items-center gap-2">
+            <MapPin className={`shrink-0 text-[#e31e24] ${tall ? "h-4 w-4" : "h-3.5 w-3.5"}`} />
+            <span>
+              <span className="text-white/60">Location: </span>
+              Ho · Volta Region · Ghana
+            </span>
+          </li>
+        </ul>
+      ) : (
+        <button
+          type="button"
+          className={`relative mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-white font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6] ${
+            tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
+          }`}
+        >
+          Create Support Ticket
+          <ArrowRight className={tall ? "h-4 w-4" : "h-3.5 w-3.5"} />
+        </button>
+      )}
     </div>
   );
 }
