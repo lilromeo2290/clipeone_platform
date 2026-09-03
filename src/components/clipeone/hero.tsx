@@ -27,7 +27,7 @@ const SLIDES: Slide[] = [
       </>
     ),
     sub: "One powerful platform to discover, subscribe, and use the best software solutions for your organization or business.",
-    primary: "Explore Applications",
+    primary: "Explore Websites & Services",
     secondary: "How It Works",
     image: {
       src: "/clipeone/hero-image.png",
