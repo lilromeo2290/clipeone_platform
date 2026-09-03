@@ -20,6 +20,16 @@ interface WebsiteEntry {
   category: string;
 }
 
+interface PlatformImage {
+  name: string;
+  image: string;
+  alt: string;
+  captionTitle: string;
+  captionSub: string;
+  badge: string;
+  href?: string;
+}
+
 const CATEGORIES: Category[] = [
   {
     name: "Websites",
@@ -33,11 +43,11 @@ const CATEGORIES: Category[] = [
   {
     name: "Platforms",
     desc: "Operational platforms, dashboards, and internal systems for growing companies.",
-    count: 1,
+    count: 2,
     icon: <LayoutGrid className="h-5 w-5" />,
     color: "#f97316",
     tag: "Platforms",
-    metricLabel: "Platform",
+    metricLabel: "Platforms",
   },
 ];
 
@@ -107,6 +117,26 @@ const PLATFORMS: WebsiteEntry[] = [
   },
 ];
 
+const PLATFORM_IMAGES: PlatformImage[] = [
+  {
+    name: "ClipeGov RMS",
+    image: "/clipeone/hero-screenshot.png",
+    alt: "ClipeGov RMS login screen deployed for Kpando Municipal Assembly",
+    captionTitle: "ClipeGov RMS",
+    captionSub: "Revenue Management System · Kpando Municipal Assembly",
+    badge: "LIVE",
+    href: "https://rms.clipeconsult.com/",
+  },
+  {
+    name: "Dwellers",
+    image: "/clipeone/platform-2.png",
+    alt: "Dwellers construction marketplace homepage — Find. Buy. Build.",
+    captionTitle: "Dwellers",
+    captionSub: "Construction marketplace for Ghana · Find. Buy. Build.",
+    badge: "NEW",
+  },
+];
+
 const TABS = ["All Categories", "Websites", "Platforms"];
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -136,11 +166,10 @@ export function ExploreApplications() {
   }, [active]);
 
   const expandedEntries: WebsiteEntry[] =
-    expanded === "Websites"
-      ? WEBSITES
-      : expanded === "Platforms"
-        ? PLATFORMS
-        : [];
+    expanded === "Websites" ? WEBSITES : [];
+
+  const expandedPlatformImages: PlatformImage[] =
+    expanded === "Platforms" ? PLATFORM_IMAGES : [];
 
   return (
     <section
@@ -248,7 +277,7 @@ export function ExploreApplications() {
         })}
       </div>
 
-      {/* Expanded entries grid */}
+      {/* Expanded entries grid — Websites */}
       {expandedEntries.length > 0 && (
         <div
           id={`entries-${expanded}`}
@@ -260,7 +289,7 @@ export function ExploreApplications() {
                 {expanded} we&rsquo;ve built
               </h3>
               <p className="mt-0.5 text-xs text-[#6b7280]">
-                {expandedEntries.length} {expanded === "Websites" ? "websites" : "platforms"} · click any card to open in a new tab
+                {expandedEntries.length} websites · click any card to open in a new tab
               </p>
             </div>
             <span
@@ -269,11 +298,10 @@ export function ExploreApplications() {
               <span
                 className="h-1.5 w-1.5 rounded-full"
                 style={{
-                  backgroundColor:
-                    expanded === "Websites" ? "#1e3a8a" : "#f97316",
+                  backgroundColor: "#1e3a8a",
                 }}
               />
-              {expanded}
+              Websites
             </span>
           </header>
 
@@ -321,6 +349,91 @@ export function ExploreApplications() {
                   </span>
                   <ExternalLink className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
                 </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Expanded image grid — Platforms */}
+      {expandedPlatformImages.length > 0 && (
+        <div
+          id={`entries-${expanded}`}
+          className="mt-5 animate-fade-up rounded-lg border border-[#e5e7eb] bg-[#f8fafc] p-4 sm:p-5"
+        >
+          <header className="mb-4 flex items-center justify-between gap-3">
+            <div>
+              <h3 className="text-sm font-bold tracking-tight text-[#111827]">
+                Platforms we&rsquo;ve built
+              </h3>
+              <p className="mt-0.5 text-xs text-[#6b7280]">
+                {expandedPlatformImages.length} platforms · hover to preview, click to open
+              </p>
+            </div>
+            <span
+              className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#0a1f3d] shadow-soft"
+            >
+              <span
+                className="h-1.5 w-1.5 rounded-full"
+                style={{ backgroundColor: "#f97316" }}
+              />
+              Platforms
+            </span>
+          </header>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {expandedPlatformImages.map((p) => {
+              const Wrapper = p.href ? "a" : "div";
+              const wrapperProps = p.href
+                ? {
+                    href: p.href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  }
+                : {};
+              return (
+                <Wrapper
+                  key={p.name}
+                  {...wrapperProps}
+                  className="group block overflow-hidden rounded-lg border border-[#e5e7eb] bg-white transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden border-b border-[#e5e7eb] bg-[#f8fafc]">
+                    <img
+                      src={p.image}
+                      alt={p.alt}
+                      className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                    {/* Top-right badge */}
+                    <span
+                      className={`absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-bold text-white shadow-sm ${
+                        p.badge === "LIVE"
+                          ? "bg-[#059669]"
+                          : p.badge === "NEW"
+                            ? "bg-[#e31e24]"
+                            : "bg-[#0a1f3d]"
+                      }`}
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                      {p.badge}
+                    </span>
+                  </div>
+                  {/* Caption */}
+                  <div className="flex flex-col gap-1 p-4">
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="text-sm font-bold leading-tight text-[#111827]">
+                        {p.captionTitle}
+                      </p>
+                      {p.href && (
+                        <ExternalLink className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
+                      )}
+                    </div>
+                    <p className="text-[11px] leading-snug text-[#6b7280]">
+                      {p.captionSub}
+                    </p>
+                  </div>
+                </Wrapper>
               );
             })}
           </div>
