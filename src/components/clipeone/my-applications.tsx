@@ -13,7 +13,7 @@ interface App {
   tagline: string;
   icon: React.ReactNode;
   color: string;
-  status: "Active" | "Trial" | "Expired";
+  status: "Active" | "Trial" | "Expired" | "Pending";
 }
 
 const APPS: App[] = [
@@ -29,27 +29,28 @@ const APPS: App[] = [
     tagline: "Accounting & Finance",
     icon: <Calculator className="h-6 w-6" />,
     color: "#059669",
-    status: "Active",
+    status: "Pending",
   },
   {
     name: "ClipeHR",
     tagline: "Human Resources",
     icon: <Users className="h-6 w-6" />,
     color: "#7c3aed",
-    status: "Active",
+    status: "Pending",
   },
   {
     name: "ClipeSchool",
     tagline: "School Management",
     icon: <GraduationCap className="h-6 w-6" />,
     color: "#dc2626",
-    status: "Active",
+    status: "Pending",
   },
 ];
 
 const STATUS_STYLES: Record<App["status"], string> = {
   Active: "bg-[#d1fae5] text-[#059669]",
-  Trial: "bg-[#fef3c7] text-[#d97706]",
+  Pending: "bg-[#fef3c7] text-[#d97706]",
+  Trial: "bg-[#e0e7ff] text-[#4f46e5]",
   Expired: "bg-[#fee2e2] text-[#dc2626]",
 };
 
