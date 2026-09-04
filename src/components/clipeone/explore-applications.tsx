@@ -59,12 +59,14 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://globalexperiencegh.org/",
     domain: "globalexperiencegh.org",
     category: "Non-profit",
+    logo: "/clipeone/websites/global-experience-gh.png",
   },
   {
     name: "Dwell Chronicles GH",
     url: "https://dwellchroniclesgh.com/",
     domain: "dwellchroniclesgh.com",
     category: "Lifestyle",
+    logo: "/clipeone/websites/dwell-chronicles-gh.jpg",
   },
   {
     name: "SIV Engineering",
@@ -78,18 +80,21 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://pycclub.org/",
     domain: "pycclub.org",
     category: "Community",
+    logo: "/clipeone/websites/pyc-club.png",
   },
   {
     name: "Rasmuta Foundation",
     url: "https://rasmutafoundation.org/",
     domain: "rasmutafoundation.org",
     category: "Foundation",
+    logo: "/clipeone/websites/rasmuta-foundation.jpg",
   },
   {
     name: "24 Hour News Online",
     url: "https://24hournewsonline.com/",
     domain: "24hournewsonline.com",
     category: "News & Media",
+    logo: "/clipeone/websites/24-hour-news-online.png",
   },
   {
     name: "Volta Tourism Hub",
@@ -103,12 +108,14 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://fafaafmonline.com/",
     domain: "fafaafmonline.com",
     category: "Faith",
+    logo: "/clipeone/websites/fafaa-fm.jpg",
   },
   {
     name: "Duamenefa Foundation",
-    url: "https://www.duamenefafafoundation.org/",
-    domain: "duamenefafafoundation.org",
+    url: "https://duamenefafoundation.org/",
+    domain: "duamenefafoundation.org",
     category: "Foundation",
+    logo: "/clipeone/websites/duamenefa-foundation.jpg",
   },
   {
     name: "JKarl Excellence Ventures",
