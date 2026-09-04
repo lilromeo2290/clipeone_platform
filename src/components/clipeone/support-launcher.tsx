@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { LifeBuoy, X } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
 import { SupportTicketModal } from "./support-ticket-modal";
@@ -11,19 +11,23 @@ import { TrackTicketModal } from "./track-ticket-modal";
  * controls. Mount this once near the root of the layout.
  */
 export function SupportLauncher() {
-  const { open, openCreate, openTrack, close } = useSupportModal();
+  const { open, openCreate, openTrack } = useSupportModal();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Close the popover when any modal opens
-  useEffect(() => {
-    if (open) setMenuOpen(false);
-  }, [open]);
+  const handleCreate = () => {
+    setMenuOpen(false);
+    openCreate();
+  };
+  const handleTrack = () => {
+    setMenuOpen(false);
+    openTrack();
+  };
 
   return (
     <>
       {/* Floating button + popover */}
       <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end gap-2 sm:bottom-6 sm:right-6">
-        {menuOpen && (
+        {menuOpen && !open && (
           <div className="flex w-64 flex-col gap-1 rounded-xl border border-[#e5e7eb] bg-white p-2 shadow-2xl animate-fade-up">
             <div className="px-3 py-2">
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#9ca3af]">
@@ -33,7 +37,7 @@ export function SupportLauncher() {
             </div>
             <button
               type="button"
-              onClick={openCreate}
+              onClick={handleCreate}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-[#f8fafc]"
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#e31e24] text-white">
@@ -50,7 +54,7 @@ export function SupportLauncher() {
             </button>
             <button
               type="button"
-              onClick={openTrack}
+              onClick={handleTrack}
               className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-[#f8fafc]"
             >
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0a1f3d] text-white">
@@ -103,3 +107,4 @@ export function SupportLauncher() {
     </>
   );
 }
+
