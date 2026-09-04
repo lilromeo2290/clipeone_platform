@@ -71,6 +71,7 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://sivengineering.com/",
     domain: "sivengineering.com",
     category: "Engineering",
+    logo: "/clipeone/websites/siv-engineering.png",
   },
   {
     name: "PYC Club",
@@ -95,6 +96,7 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://voltatourismhub.com/",
     domain: "voltatourismhub.com",
     category: "Tourism",
+    logo: "/clipeone/websites/volta-tourism-hub.jpg",
   },
   {
     name: "Fafaa Fm",
