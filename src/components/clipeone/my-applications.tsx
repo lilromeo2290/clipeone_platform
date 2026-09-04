@@ -100,48 +100,48 @@ export function MyApplications() {
             {...(app.external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="group flex flex-col gap-3 overflow-hidden rounded-lg border border-[#e5e7eb] bg-white transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
+            className="group flex flex-col overflow-hidden rounded-lg border border-[#e5e7eb] bg-white transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
           >
-            {/* Optional preview image */}
+            {/* Preview image — taller aspect, object-contain so the full
+                login screen is visible without cropping/squishing.
+                Icon + status badge float on top of the image. */}
             {app.preview && (
-              <div className="relative aspect-[4/3] overflow-hidden border-b border-[#e5e7eb] bg-[#f8fafc]">
+              <div className="relative aspect-[3/4] overflow-hidden border-b border-[#e5e7eb] bg-[#0a1f3d]">
                 <img
                   src={app.preview}
                   alt={app.previewAlt || app.name}
-                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="absolute inset-0 h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
-                {/* Color tint overlay matching the app color */}
+                {/* Top-left floating icon badge */}
+                <span
+                  className="absolute left-2 top-2 flex h-8 w-8 items-center justify-center rounded-md text-white shadow-md ring-2 ring-white/80"
+                  style={{ backgroundColor: app.color }}
+                >
+                  {/* shrink icon to fit the smaller badge */}
+                  <span className="[&>svg]:h-4 [&>svg]:w-4">{app.icon}</span>
+                </span>
+                {/* Top-right floating status badge */}
+                <span
+                  className={`absolute right-2 top-2 rounded-full px-2 py-0.5 text-[10px] font-bold shadow-sm ring-1 ring-black/5 ${STATUS_STYLES[app.status]}`}
+                >
+                  {app.status}
+                </span>
+                {/* Bottom gradient for legibility of any text near bottom of image */}
                 <div
-                  className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{
-                    background: `linear-gradient(to top, ${app.color}30, transparent 60%)`,
-                  }}
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0a1f3d]/60 to-transparent"
+                  aria-hidden="true"
                 />
               </div>
             )}
-            <div className="flex flex-col gap-3 p-3.5">
-            <div className="flex items-start justify-between">
-              <span
-                className="flex h-11 w-11 items-center justify-center rounded-lg text-white shadow-sm"
-                style={{ backgroundColor: app.color }}
-              >
-                {app.icon}
-              </span>
-              <span
-                className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${STATUS_STYLES[app.status]}`}
-              >
-                {app.status}
-              </span>
-            </div>
-            <div className="flex flex-col gap-0.5">
+            {/* Name + tagline below the image — cleaner, more breathing room */}
+            <div className="flex flex-col gap-0.5 p-3.5">
               <p className="text-sm font-bold leading-tight text-[#111827]">
                 {app.name}
               </p>
               <p className="text-[11px] leading-snug text-[#6b7280]">
                 {app.tagline}
               </p>
-            </div>
             </div>
           </a>
         ))}
