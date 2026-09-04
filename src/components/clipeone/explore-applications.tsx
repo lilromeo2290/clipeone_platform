@@ -383,6 +383,13 @@ export function ExploreApplications() {
                       >
                         {entry.category}
                       </span>
+                      <span
+                        title="Online"
+                        className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#d1fae5] px-2 py-0.5 text-[10px] font-bold text-[#059669]"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#059669]" />
+                        <span className="hidden md:inline">Online</span>
+                      </span>
                       <ExternalLink className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
                     </>
                   )}
