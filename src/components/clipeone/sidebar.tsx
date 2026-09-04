@@ -156,15 +156,15 @@ function NeedHelpCard({
           >
             {isContact ? "Contact Us" : "Need Help?"}
           </p>
-          <p
-            className={`leading-snug text-white/70 ${
-              tall ? "text-sm" : "text-[11px]"
-            }`}
-          >
-            {isContact
-              ? "Reach out by email, phone, or visit our office — we typically respond in under five minutes."
-              : "Our support team is ready to assist you with any question, any time."}
-          </p>
+          {!isContact && (
+            <p
+              className={`leading-snug text-white/70 ${
+                tall ? "text-sm" : "text-[11px]"
+              }`}
+            >
+              Our support team is ready to assist you with any question, any time.
+            </p>
+          )}
         </div>
       </div>
 
