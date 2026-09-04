@@ -12,14 +12,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
-
-// WhatsApp deep link — opens chat with pre-filled message
-const WHATSAPP_NUMBER = "233249783637"; // 024 978 3637 in international format
-const WHATSAPP_PREFILL =
-  "Hi ClipeOne Support, I have a question about...";
-const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_PREFILL
-)}`;
+import { openLiveChat } from "@/lib/tawk";
 
 const ANNOUNCEMENTS = [
   {
