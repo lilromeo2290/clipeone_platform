@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { SupportModalProvider } from "@/components/clipeone/support-modal-context";
+import { SupportLauncher } from "@/components/clipeone/support-launcher";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,7 +39,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-[#f8fafc] text-[#111827]`}
       >
-        {children}
+        <SupportModalProvider>
+          {children}
+          <SupportLauncher />
+        </SupportModalProvider>
         <Toaster />
       </body>
     </html>

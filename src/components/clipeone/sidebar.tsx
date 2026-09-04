@@ -10,6 +10,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import { useSupportModal } from "./support-modal-context";
 
 const ANNOUNCEMENTS = [
   {
