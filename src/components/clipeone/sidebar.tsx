@@ -9,10 +9,8 @@ import {
   Mail,
   Phone,
   MapPin,
-  MessageCircle,
 } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
-import { openLiveChat } from "@/lib/tawk";
 
 const ANNOUNCEMENTS = [
   {
