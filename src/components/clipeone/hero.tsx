@@ -127,10 +127,10 @@ export function Hero() {
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#e31e24]/15 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[#1e3a8a]/30 blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-10">
           {/* Left copy */}
-          <div className="lg:col-span-7 animate-fade-up">
+          <div className="lg:col-span-6 animate-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               {slide.label} ClipeOne
             </span>
