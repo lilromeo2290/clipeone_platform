@@ -9,10 +9,8 @@ import {
   Search,
   AlertCircle,
   Mail,
-  MessageCircle,
 } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
-import { openLiveChat } from "@/lib/tawk";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -433,16 +431,6 @@ function SuccessView({
           anytime.
         </p>
       </div>
-
-      {/* Live Chat escalation — for users who want a faster reply */}
-      <button
-        type="button"
-        onClick={openLiveChat}
-        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-5 text-sm font-bold text-white transition-colors hover:bg-[#1ebe57]"
-      >
-        <MessageCircle className="h-4 w-4" />
-        Need a faster reply? Live Chat
-      </button>
 
       <div className="flex w-full flex-col gap-2 sm:flex-row">
         <button
