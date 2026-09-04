@@ -317,46 +317,76 @@ export function ExploreApplications() {
             {expandedEntries.map((entry) => {
               const catColor =
                 CATEGORY_COLORS[entry.category] || "#475569";
+              const isConstruction = entry.underConstruction || !entry.url;
+              const CardTag = isConstruction ? "div" : "a";
+              const cardProps = isConstruction
+                ? {}
+                : {
+                    href: entry.url,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  };
               return (
-                <a
-                  key={entry.url}
-                  href={entry.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-[#e5e7eb] bg-white p-3 transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
+                <CardTag
+                  key={entry.name}
+                  {...cardProps}
+                  className={`group flex items-center gap-3 rounded-lg border p-3 transition-all ${
+                    isConstruction
+                      ? "cursor-default border-dashed border-[#d97706]/40 bg-[#fffbeb]"
+                      : "cursor-pointer border-[#e5e7eb] bg-white hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
+                  }`}
                 >
                   <span
                     className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#f8fafc] ring-1 ring-inset ring-[#e5e7eb]"
                     style={{ backgroundColor: `${catColor}10` }}
                   >
-                    <img
-                      src={faviconFor(entry.url)}
-                      alt=""
-                      width={28}
-                      height={28}
-                      className="h-7 w-7 object-contain"
-                      loading="lazy"
-                    />
+                    {isConstruction ? (
+                      <HardHat className="h-5 w-5" style={{ color: catColor }} />
+                    ) : (
+                      <img
+                        src={faviconFor(entry.url!)}
+                        alt=""
+                        width={28}
+                        height={28}
+                        className="h-7 w-7 object-contain"
+                        loading="lazy"
+                      />
+                    )}
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                     <p className="truncate text-sm font-bold leading-tight text-[#111827]">
                       {entry.name}
                     </p>
-                    <p className="truncate text-[11px] text-[#6b7280]">
+                    <p
+                      className={`truncate text-[11px] ${
+                        isConstruction
+                          ? "font-semibold text-[#d97706]"
+                          : "text-[#6b7280]"
+                      }`}
+                    >
                       {entry.domain}
                     </p>
                   </div>
-                  <span
-                    className="hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline-block"
-                    style={{
-                      backgroundColor: `${catColor}15`,
-                      color: catColor,
-                    }}
-                  >
-                    {entry.category}
-                  </span>
-                  <ExternalLink className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
-                </a>
+                  {isConstruction ? (
+                    <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#d97706] px-2 py-0.5 text-[10px] font-bold text-white">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <>
+                      <span
+                        className="hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline-block"
+                        style={{
+                          backgroundColor: `${catColor}15`,
+                          color: catColor,
+                        }}
+                      >
+                        {entry.category}
+                      </span>
+                      <ExternalLink className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
+                    </>
+                  )}
+                </CardTag>
               );
             })}
           </div>
