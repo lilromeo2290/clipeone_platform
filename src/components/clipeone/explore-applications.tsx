@@ -352,7 +352,7 @@ export function ExploreApplications() {
                     className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-[#e5e7eb]"
                     style={{ backgroundColor: isConstruction ? `${catColor}10` : "#ffffff" }}
                   >
-                    {isConstruction ? (
+                    {isConstruction && !entry.logo ? (
                       <HardHat className="h-8 w-8" style={{ color: catColor }} />
                     ) : entry.logo ? (
                       <img
