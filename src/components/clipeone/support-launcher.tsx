@@ -40,7 +40,7 @@ export function SupportLauncher() {
               </p>
               <p className="text-sm font-bold text-[#0a1f3d]">How can we help?</p>
             </div>
-            {/* Live Chat — WhatsApp (listed first = fastest path) */}
+            {/* Live Chat — Tawk.to if available, WhatsApp fallback */}
             <button
               type="button"
               onClick={handleLiveChat}
@@ -54,7 +54,7 @@ export function SupportLauncher() {
                   Live Chat
                 </span>
                 <span className="text-[11px] text-[#6b7280]">
-                  Fastest · via WhatsApp
+                  Fastest · {liveChatLabel().includes("WhatsApp") ? "via WhatsApp" : "online now"}
                 </span>
               </span>
             </button>
