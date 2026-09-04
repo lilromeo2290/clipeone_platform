@@ -4,6 +4,7 @@ import {
   Building2,
   Calculator,
   Users,
+  GraduationCap,
   ArrowRight,
 } from "lucide-react";
 
