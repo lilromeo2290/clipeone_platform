@@ -35,7 +35,7 @@ const CATEGORIES: Category[] = [
   {
     name: "Websites",
     desc: "Public-facing websites, portals, and online presence for organizations and businesses.",
-    count: 9,
+    count: 10,
     icon: <Globe className="h-5 w-5" />,
     color: "#1e3a8a",
     tag: "Websites",
@@ -106,6 +106,12 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://www.duamenefafafoundation.org/",
     domain: "duamenefafafoundation.org",
     category: "Foundation",
+  },
+  {
+    name: "JKarl Excellence Ventures",
+    domain: "Coming soon",
+    category: "Construction",
+    underConstruction: true,
   },
 ];
 
