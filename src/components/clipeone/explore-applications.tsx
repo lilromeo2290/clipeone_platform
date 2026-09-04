@@ -156,6 +156,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Tourism: "#0d9488",
   Faith: "#1e3a8a",
   Government: "#1e3a8a",
+  Construction: "#d97706",
 };
 
 const faviconFor = (url: string) =>
