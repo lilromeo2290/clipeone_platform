@@ -222,16 +222,36 @@ function NeedHelpCard({
           </li>
         </ul>
       ) : (
-        <button
-          type="button"
-          onClick={onButtonClick}
-          className={`relative mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-white font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6] ${
-            tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
-          }`}
-        >
-          Create Support Ticket
-          <ArrowRight className={tall ? "h-4 w-4" : "h-3.5 w-3.5"} />
-        </button>
+        <div className="relative mt-4 flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={onButtonClick}
+            className={`inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-white font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6] ${
+              tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
+            }`}
+          >
+            Create Support Ticket
+            <ArrowRight className={tall ? "h-4 w-4" : "h-3.5 w-3.5"} />
+          </button>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-[#25D366] font-bold text-white transition-colors hover:bg-[#1ebe57] ${
+              tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
+            }`}
+          >
+            <MessageCircle className={tall ? "h-4 w-4" : "h-3.5 w-3.5"} />
+            Live Chat
+            <span
+              className={`ml-1 font-medium text-white/80 ${
+                tall ? "text-[10px]" : "text-[9px]"
+              }`}
+            >
+              via WhatsApp
+            </span>
+          </a>
+        </div>
       )}
     </div>
   );
