@@ -201,7 +201,7 @@ export function Hero() {
           </div>
 
           {/* Right hero image — synced to active slide */}
-          <div className="lg:col-span-5 animate-fade-in">
+          <div className="lg:col-span-6 animate-fade-in">
             <HeroImage slide={slide} active={active} />
           </div>
         </div>
