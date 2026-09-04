@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Globe, LayoutGrid, ArrowRight, ExternalLink, ChevronUp } from "lucide-react";
+import { Globe, LayoutGrid, ArrowRight, ExternalLink, ChevronUp, HardHat } from "lucide-react";
 
 interface Category {
   name: string;
@@ -15,9 +15,10 @@ interface Category {
 
 interface WebsiteEntry {
   name: string;
-  url: string;
+  url?: string;
   domain: string;
   category: string;
+  underConstruction?: boolean;
 }
 
 interface PlatformImage {
