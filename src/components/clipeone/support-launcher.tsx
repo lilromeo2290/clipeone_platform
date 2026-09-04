@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { LifeBuoy, X, MessageCircle } from "lucide-react";
+import { LifeBuoy, X, MessageCircle, MessageSquare } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
 import { SupportTicketModal } from "./support-ticket-modal";
 import { TrackTicketModal } from "./track-ticket-modal";
-import { openLiveChat, liveChatLabel } from "@/lib/tawk";
+import { openLiveChat, liveChatLabel, tawkConfigured } from "@/lib/tawk";
 
 /**
  * Renders the floating Support button (bottom-right) AND the two modals it
@@ -25,6 +25,12 @@ export function SupportLauncher() {
   };
   const handleLiveChat = () => {
     setMenuOpen(false);
+    openLiveChat();
+  };
+  const handleTawk = () => {
+    setMenuOpen(false);
+    // If Tawk.to is configured, openLiveChat() will use it; otherwise it falls
+    // back to WhatsApp. This keeps a single code path.
     openLiveChat();
   };
 
@@ -58,6 +64,27 @@ export function SupportLauncher() {
                 </span>
               </span>
             </button>
+            {/* Tawk.to chat — only shown once env vars are set.
+                Until then, this button is hidden from users. */}
+            {tawkConfigured && (
+              <button
+                type="button"
+                onClick={handleTawk}
+                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-[#eef2ff]"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#4f46e5] text-white">
+                  <MessageSquare className="h-4 w-4" />
+                </span>
+                <span className="flex flex-col">
+                  <span className="text-sm font-bold text-[#111827]">
+                    Chat with us
+                  </span>
+                  <span className="text-[11px] text-[#6b7280]">
+                    On-site · powered by Tawk.to
+                  </span>
+                </span>
+              </button>
+            )}
             <button
               type="button"
               onClick={handleCreate}
