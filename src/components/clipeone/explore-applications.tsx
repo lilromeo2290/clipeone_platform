@@ -122,6 +122,7 @@ const WEBSITES: WebsiteEntry[] = [
     domain: "Coming soon",
     category: "Construction",
     underConstruction: true,
+    logo: "/clipeone/websites/jkarl-excellence-ventures.png",
   },
 ];
 
