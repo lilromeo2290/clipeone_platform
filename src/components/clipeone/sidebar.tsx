@@ -215,6 +215,7 @@ function NeedHelpCard({
       ) : (
         <button
           type="button"
+          onClick={onButtonClick}
           className={`relative mt-4 inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-white font-bold text-[#0a1f3d] transition-colors hover:bg-[#f3f4f6] ${
             tall ? "min-h-11 px-4 text-sm" : "min-h-9 px-3 text-xs"
           }`}
