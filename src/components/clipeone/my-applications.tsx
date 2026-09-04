@@ -52,6 +52,16 @@ const APPS: App[] = [
     preview: "/clipeone/apps/CRM.png",
     previewAlt: "ClipeCRM customer relationship management application login screen",
   },
+  {
+    name: "ClipeSchool",
+    tagline: "School Management System",
+    icon: <GraduationCap className="h-6 w-6" />,
+    color: "#0d9488",
+    status: "Pending",
+    href: "#",
+    preview: "/clipeone/apps/school.png",
+    previewAlt: "ClipeSchool management system login screen",
+  },
 ];
 
 const STATUS_STYLES: Record<App["status"], string> = {
