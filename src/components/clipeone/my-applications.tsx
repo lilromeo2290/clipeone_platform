@@ -3,7 +3,7 @@
 import {
   Building2,
   Calculator,
-  GraduationCap,
+  Users,
   ArrowRight,
 } from "lucide-react";
 
