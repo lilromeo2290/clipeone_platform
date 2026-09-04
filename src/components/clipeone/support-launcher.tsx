@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { LifeBuoy, X } from "lucide-react";
+import { LifeBuoy, X, MessageCircle } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
 import { SupportTicketModal } from "./support-ticket-modal";
 import { TrackTicketModal } from "./track-ticket-modal";
+
+// WhatsApp deep link — shared with sidebar.tsx (kept in sync manually)
+const WHATSAPP_NUMBER = "233249783637";
+const WHATSAPP_PREFILL = "Hi ClipeOne Support, I have a question about...";
+const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  WHATSAPP_PREFILL
+)}`;
 
 /**
  * Renders the floating Support button (bottom-right) AND the two modals it
@@ -22,6 +29,10 @@ export function SupportLauncher() {
     setMenuOpen(false);
     openTrack();
   };
+  const handleLiveChat = () => {
+    setMenuOpen(false);
+    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <>
@@ -35,6 +46,24 @@ export function SupportLauncher() {
               </p>
               <p className="text-sm font-bold text-[#0a1f3d]">How can we help?</p>
             </div>
+            {/* Live Chat — WhatsApp (listed first = fastest path) */}
+            <button
+              type="button"
+              onClick={handleLiveChat}
+              className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-[#f0fdf4]"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white">
+                <MessageCircle className="h-4 w-4" />
+              </span>
+              <span className="flex flex-col">
+                <span className="text-sm font-bold text-[#111827]">
+                  Live Chat
+                </span>
+                <span className="text-[11px] text-[#6b7280]">
+                  Fastest · via WhatsApp
+                </span>
+              </span>
+            </button>
             <button
               type="button"
               onClick={handleCreate}
