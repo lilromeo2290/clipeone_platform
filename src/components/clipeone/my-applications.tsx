@@ -41,9 +41,9 @@ const APPS: App[] = [
     href: "#",
   },
   {
-    name: "ClipeSchool",
-    tagline: "School Management",
-    icon: <GraduationCap className="h-6 w-6" />,
+    name: "ClipeCRM",
+    tagline: "Customer Relationship Management",
+    icon: <Users className="h-6 w-6" />,
     color: "#dc2626",
     status: "Pending",
     href: "#",
