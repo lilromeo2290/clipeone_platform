@@ -74,6 +74,24 @@ const SLIDES: Slide[] = [
     },
   },
   {
+    label: "Visit us",
+    title: (
+      <>
+        Welcome to <span className="text-white">Clipe Consult</span>
+      </>
+    ),
+    sub: "IT Solutions for a Smarter Tomorrow. Step into our office — where Technology, People, and Better Lives come together to power every product we build.",
+    primary: "Get Directions",
+    secondary: "Office Hours",
+    image: {
+      src: "/clipeone/hero-dashboard.png",
+      alt: "Clipe Consult office reception area with welcome signage and tagline",
+      captionTitle: "Clipe Consult · Reception",
+      captionSub: "Technology · People · Better Lives",
+      badge: "VISIT",
+    },
+  },
+  {
     label: "Trusted",
     title: (
       <>
