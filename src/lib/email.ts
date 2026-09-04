@@ -24,6 +24,8 @@ const transporter = hasCreds
 
 export const emailConfigured = hasCreds;
 export const supportInbox = process.env.GMAIL_USER || "support@clipeone.com";
+export const supportCc =
+  process.env.SUPPORT_CC_EMAIL?.trim() || null;
 
 interface SendMailArgs {
   to: string;
@@ -31,6 +33,7 @@ interface SendMailArgs {
   text: string;
   html: string;
   replyTo?: string;
+  cc?: string;
 }
 
 export async function sendMail(args: SendMailArgs): Promise<boolean> {
@@ -42,14 +45,21 @@ export async function sendMail(args: SendMailArgs): Promise<boolean> {
     return false;
   }
   try {
+    const cc = args.cc || supportCc || undefined;
     await transporter.sendMail({
       from: `"ClipeOne Support" <${process.env.GMAIL_USER}>`,
       to: args.to,
+      cc,
       subject: args.subject,
       text: args.text,
       html: args.html,
       replyTo: args.replyTo,
     });
+    console.info(
+      "[email] sent to",
+      args.to,
+      cc ? `(cc: ${cc})` : ""
+    );
     return true;
   } catch (err) {
     console.error("[email] sendMail failed:", err);
