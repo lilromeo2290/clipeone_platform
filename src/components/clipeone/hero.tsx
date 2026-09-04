@@ -92,6 +92,24 @@ const SLIDES: Slide[] = [
     },
   },
   {
+    label: "Inside",
+    title: (
+      <>
+        Where leadership <span className="text-white">meets vision</span>
+      </>
+    ),
+    sub: "Secure. Connect. Grow. From the CEO's office to every product we ship, Clipe Consult engineers IT solutions that move your organization forward.",
+    primary: "Meet the Team",
+    secondary: "Our Story",
+    image: {
+      src: "/clipeone/hero-cc.png",
+      alt: "Clipe Consult CEO office interior with branding and Secure Connect Grow tagline",
+      captionTitle: "Clipe Consult · CEO Office",
+      captionSub: "Secure · Connect · Grow",
+      badge: "CEO",
+    },
+  },
+  {
     label: "Trusted",
     title: (
       <>
