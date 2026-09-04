@@ -40,6 +40,7 @@ const ANNOUNCEMENTS = [
 ];
 
 export function Sidebar() {
+  const { openCreate } = useSupportModal();
   return (
     <aside className="flex flex-col gap-4">
       {/* My Organization */}
