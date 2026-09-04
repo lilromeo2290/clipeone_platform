@@ -10,33 +10,6 @@ import {
 } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
 
-const ANNOUNCEMENTS = [
-  {
-    icon: <Bell className="h-4 w-4" />,
-    title: "System Maintenance Notice",
-    desc: "Scheduled downtime on May 25, 02:00 – 04:00 UTC for security patches.",
-    date: "May 20, 2025",
-    color: "#e31e24",
-    bg: "#fee2e2",
-  },
-  {
-    icon: <Rocket className="h-4 w-4" />,
-    title: "New Application Added",
-    desc: "ClipePay is now available — accept payments across every ClipeOne app.",
-    date: "May 18, 2025",
-    color: "#2563eb",
-    bg: "#dbeafe",
-  },
-  {
-    icon: <ShieldCheck className="h-4 w-4" />,
-    title: "Security Update",
-    desc: "Two-factor authentication is now mandatory for all admin accounts.",
-    date: "May 15, 2025",
-    color: "#059669",
-    bg: "#d1fae5",
-  },
-];
-
 export function Sidebar() {
   const { openCreate } = useSupportModal();
   return (
@@ -63,52 +36,29 @@ export function Sidebar() {
         </a>
       </div>
 
-      {/* Announcements */}
+      {/* Announcements — empty state */}
       <div className="rounded-xl border border-[#e5e7eb] bg-white p-5 shadow-soft">
         <header className="mb-3 flex items-center justify-between">
           <p className="text-sm font-bold text-[#111827]">Announcements</p>
-          <a
-            href="#"
-            className="text-xs font-semibold text-[#e31e24] hover:text-[#b9141a]"
-          >
-            View All
-          </a>
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#f3f4f6] px-2 py-0.5 text-[10px] font-bold text-[#6b7280]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#9ca3af]" />
+            0 new
+          </span>
         </header>
-        <ul className="flex flex-col gap-3">
-          {ANNOUNCEMENTS.map((a, idx) => (
-            <li
-              key={idx}
-              className="group flex gap-3 rounded-lg p-2 transition-colors hover:bg-[#f8fafc]"
-            >
-              <span
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
-                style={{ backgroundColor: a.bg, color: a.color }}
-              >
-                {a.icon}
-              </span>
-              <div className="flex min-w-0 flex-col gap-0.5">
-                <div className="flex items-center justify-between gap-2">
-                  <p className="truncate text-sm font-bold text-[#111827]">
-                    {a.title}
-                  </p>
-                  <span className="shrink-0 text-[10px] font-medium text-[#9ca3af]">
-                    {a.date}
-                  </span>
-                </div>
-                <p className="text-[11px] leading-snug text-[#6b7280]">
-                  {a.desc}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <a
-          href="#"
-          className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#e31e24] hover:text-[#b9141a]"
-        >
-          More Announcements
-          <ArrowRight className="h-3.5 w-3.5" />
-        </a>
+        <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed border-[#e5e7eb] bg-[#f8fafc] p-6 text-center">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#9ca3af] ring-1 ring-inset ring-[#e5e7eb]">
+            <Bell className="h-6 w-6" />
+          </span>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm font-bold text-[#111827]">
+              No announcements
+            </p>
+            <p className="text-[11px] leading-snug text-[#6b7280]">
+              You&apos;re all caught up. New updates from ClipeOne will appear
+              here as soon as they&apos;re posted.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Need Help cards — first shows contact write-up, second shows ticket CTA */}
