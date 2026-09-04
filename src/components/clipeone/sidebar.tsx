@@ -141,13 +141,15 @@ function NeedHelpCard({
         }`}
       />
       <div className="relative flex items-start gap-3">
-        <span
-          className={`flex shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 ${
-            tall ? "h-14 w-14" : "h-9 w-9"
-          }`}
-        >
-          <Headphones className={tall ? "h-8 w-8 text-white" : "h-5 w-5 text-white"} />
-        </span>
+        {!isContact && (
+          <span
+            className={`flex shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 ${
+              tall ? "h-14 w-14" : "h-9 w-9"
+            }`}
+          >
+            <Headphones className={tall ? "h-8 w-8 text-white" : "h-5 w-5 text-white"} />
+          </span>
+        )}
         <div className="flex min-w-0 flex-col gap-1">
           <p
             className={`font-bold leading-tight ${
