@@ -2,8 +2,6 @@
 
 import {
   Bell,
-  Rocket,
-  ShieldCheck,
   Headphones,
   ArrowRight,
   Mail,
