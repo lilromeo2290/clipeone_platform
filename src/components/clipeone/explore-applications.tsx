@@ -314,7 +314,7 @@ export function ExploreApplications() {
             </span>
           </header>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
             {expandedEntries.map((entry) => {
               const catColor =
                 CATEGORY_COLORS[entry.category] || "#475569";
@@ -331,35 +331,52 @@ export function ExploreApplications() {
                 <CardTag
                   key={entry.name}
                   {...cardProps}
-                  className={`group flex items-center gap-3 rounded-lg border p-3 transition-all ${
+                  className={`group flex gap-4 rounded-lg border p-4 transition-all ${
                     isConstruction
                       ? "cursor-default border-dashed border-[#d97706]/40 bg-[#fffbeb]"
                       : "cursor-pointer border-[#e5e7eb] bg-white hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
                   }`}
                 >
+                  {/* Logo box */}
                   <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#f8fafc] ring-1 ring-inset ring-[#e5e7eb]"
-                    style={{ backgroundColor: `${catColor}10` }}
+                    className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-[#e5e7eb]"
+                    style={{ backgroundColor: isConstruction ? `${catColor}10` : "#ffffff" }}
                   >
                     {isConstruction ? (
-                      <HardHat className="h-5 w-5" style={{ color: catColor }} />
+                      <HardHat className="h-8 w-8" style={{ color: catColor }} />
+                    ) : entry.logo ? (
+                      <img
+                        src={entry.logo}
+                        alt={`${entry.name} logo`}
+                        width={56}
+                        height={56}
+                        className="h-14 w-14 object-contain"
+                        loading="lazy"
+                      />
                     ) : (
                       <img
                         src={faviconFor(entry.url!)}
                         alt=""
-                        width={28}
-                        height={28}
-                        className="h-7 w-7 object-contain"
+                        width={40}
+                        height={40}
+                        className="h-10 w-10 object-contain"
                         loading="lazy"
                       />
                     )}
                   </span>
-                  <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <p className="truncate text-sm font-bold leading-tight text-[#111827]">
-                      {entry.name}
-                    </p>
+
+                  {/* Text + badges */}
+                  <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="text-sm font-bold leading-snug text-[#111827] line-clamp-2">
+                        {entry.name}
+                      </p>
+                      {!isConstruction && (
+                        <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
+                      )}
+                    </div>
                     <p
-                      className={`truncate text-[11px] ${
+                      className={`truncate text-xs ${
                         isConstruction
                           ? "font-semibold text-[#d97706]"
                           : "text-[#6b7280]"
@@ -367,33 +384,34 @@ export function ExploreApplications() {
                     >
                       {entry.domain}
                     </p>
+                    <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-1">
+                      {isConstruction ? (
+                        <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#d97706] px-2 py-0.5 text-[10px] font-bold text-white">
+                          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+                          Coming Soon
+                        </span>
+                      ) : (
+                        <>
+                          <span
+                            className="inline-flex shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold"
+                            style={{
+                              backgroundColor: `${catColor}15`,
+                              color: catColor,
+                            }}
+                          >
+                            {entry.category}
+                          </span>
+                          <span
+                            title="Online"
+                            className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#d1fae5] px-2 py-0.5 text-[10px] font-bold text-[#059669]"
+                          >
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#059669]" />
+                            Online
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </div>
-                  {isConstruction ? (
-                    <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#d97706] px-2 py-0.5 text-[10px] font-bold text-white">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
-                      Coming Soon
-                    </span>
-                  ) : (
-                    <>
-                      <span
-                        className="hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline-block"
-                        style={{
-                          backgroundColor: `${catColor}15`,
-                          color: catColor,
-                        }}
-                      >
-                        {entry.category}
-                      </span>
-                      <span
-                        title="Online"
-                        className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#d1fae5] px-2 py-0.5 text-[10px] font-bold text-[#059669]"
-                      >
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#059669]" />
-                        <span className="hidden md:inline">Online</span>
-                      </span>
-                      <ExternalLink className="h-4 w-4 shrink-0 text-[#9ca3af] transition-colors group-hover:text-[#e31e24]" />
-                    </>
-                  )}
                 </CardTag>
               );
             })}
