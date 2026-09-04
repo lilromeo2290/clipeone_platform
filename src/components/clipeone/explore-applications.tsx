@@ -19,6 +19,7 @@ interface WebsiteEntry {
   domain: string;
   category: string;
   underConstruction?: boolean;
+  logo?: string; // custom logo path (e.g. "/clipeone/websites/sivengineering.png")
 }
 
 interface PlatformImage {
