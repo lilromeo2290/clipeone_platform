@@ -5,13 +5,7 @@ import { LifeBuoy, X, MessageCircle } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
 import { SupportTicketModal } from "./support-ticket-modal";
 import { TrackTicketModal } from "./track-ticket-modal";
-
-// WhatsApp deep link — shared with sidebar.tsx (kept in sync manually)
-const WHATSAPP_NUMBER = "233249783637";
-const WHATSAPP_PREFILL = "Hi ClipeOne Support, I have a question about...";
-const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_PREFILL
-)}`;
+import { openLiveChat, liveChatLabel } from "@/lib/tawk";
 
 /**
  * Renders the floating Support button (bottom-right) AND the two modals it
@@ -31,7 +25,7 @@ export function SupportLauncher() {
   };
   const handleLiveChat = () => {
     setMenuOpen(false);
-    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+    openLiveChat();
   };
 
   return (
