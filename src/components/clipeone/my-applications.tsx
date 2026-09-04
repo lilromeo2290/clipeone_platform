@@ -28,9 +28,8 @@ const APPS: App[] = [
     status: "Active",
     href: "https://rms.clipeconsult.com/",
     external: true,
-    preview: "/clipeone/clipegov-rms-preview.png",
-    previewAlt:
-      "ClipeGov RMS login screen — Kpando Municipal Assembly revenue management system",
+    preview: "/clipeone/apps/RMS.png",
+    previewAlt: "ClipeGov RMS login screen",
   },
   {
     name: "ClipeBooks",
@@ -39,6 +38,8 @@ const APPS: App[] = [
     color: "#059669",
     status: "Pending",
     href: "#",
+    preview: "/clipeone/apps/Acount.png",
+    previewAlt: "ClipeBooks accounting application login screen",
   },
   {
     name: "ClipeCRM",
@@ -47,6 +48,8 @@ const APPS: App[] = [
     color: "#dc2626",
     status: "Pending",
     href: "#",
+    preview: "/clipeone/apps/CRM.png",
+    previewAlt: "ClipeCRM customer relationship management application login screen",
   },
 ];
 
