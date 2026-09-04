@@ -12,13 +12,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useSupportModal } from "./support-modal-context";
-
-// WhatsApp deep link — shared across components (kept in sync manually)
-const WHATSAPP_NUMBER = "233249783637";
-const WHATSAPP_PREFILL = "Hi ClipeOne Support, I have a question about...";
-const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_PREFILL
-)}`;
+import { openLiveChat } from "@/lib/tawk";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
