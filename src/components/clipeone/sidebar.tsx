@@ -116,7 +116,7 @@ export function Sidebar() {
       {/* Need Help cards — first shows contact write-up, second shows ticket CTA */}
       <div className="flex flex-col gap-4">
         <NeedHelpCard tall variant="contact" />
-        <NeedHelpCard tall />
+        <NeedHelpCard tall onButtonClick={openCreate} />
       </div>
     </aside>
   );
@@ -125,9 +125,11 @@ export function Sidebar() {
 function NeedHelpCard({
   tall = false,
   variant = "ticket",
+  onButtonClick,
 }: {
   tall?: boolean;
   variant?: "ticket" | "contact";
+  onButtonClick?: () => void;
 }) {
   const isContact = variant === "contact";
   return (
