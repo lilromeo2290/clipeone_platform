@@ -15,7 +15,6 @@ interface App {
   color: string;
   status: "Active" | "Trial" | "Expired" | "Pending";
   href: string;
-  external?: boolean;
   preview?: string;
   previewAlt?: string;
 }
@@ -28,7 +27,6 @@ const APPS: App[] = [
     color: "#1e3a8a",
     status: "Active",
     href: "https://rms.clipeconsult.com/",
-    external: true,
     preview: "/clipeone/apps/RMS.webp",
     previewAlt: "ClipeGov RMS login screen",
   },
@@ -97,9 +95,6 @@ export function MyApplications() {
           <a
             key={app.name}
             href={app.href}
-            {...(app.external
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
             className="group flex flex-col overflow-hidden rounded-lg border border-[#e5e7eb] bg-white transition-all hover:-translate-y-0.5 hover:border-[#0a1f3d]/20 hover:shadow-soft-lg"
           >
             {/* Preview image — taller aspect, object-contain so the full
