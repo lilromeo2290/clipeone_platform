@@ -19,7 +19,7 @@ interface WebsiteEntry {
   domain: string;
   category: string;
   underConstruction?: boolean;
-  logo?: string; // custom logo path (e.g. "/clipeone/websites/sivengineering.png")
+  logo?: string; // custom logo path (e.g. "/clipeone/websites/sivengineering.webp")
 }
 
 interface PlatformImage {
@@ -59,70 +59,70 @@ const WEBSITES: WebsiteEntry[] = [
     url: "https://globalexperiencegh.org/",
     domain: "globalexperiencegh.org",
     category: "Non-profit",
-    logo: "/clipeone/websites/global-experience-gh.png",
+    logo: "/clipeone/websites/global-experience-gh.webp",
   },
   {
     name: "Dwell Chronicles GH",
     url: "https://dwellchroniclesgh.com/",
     domain: "dwellchroniclesgh.com",
     category: "Lifestyle",
-    logo: "/clipeone/websites/dwell-chronicles-gh.jpg",
+    logo: "/clipeone/websites/dwell-chronicles-gh.webp",
   },
   {
     name: "SIV Engineering",
     url: "https://sivengineering.com/",
     domain: "sivengineering.com",
     category: "Engineering",
-    logo: "/clipeone/websites/siv-engineering.png",
+    logo: "/clipeone/websites/siv-engineering.webp",
   },
   {
     name: "PYC Club",
     url: "https://pycclub.org/",
     domain: "pycclub.org",
     category: "Community",
-    logo: "/clipeone/websites/pyc-club.png",
+    logo: "/clipeone/websites/pyc-club.webp",
   },
   {
     name: "Rasmuta Foundation",
     url: "https://rasmutafoundation.org/",
     domain: "rasmutafoundation.org",
     category: "Foundation",
-    logo: "/clipeone/websites/rasmuta-foundation.jpg",
+    logo: "/clipeone/websites/rasmuta-foundation.webp",
   },
   {
     name: "24 Hour News Online",
     url: "https://24hournewsonline.com/",
     domain: "24hournewsonline.com",
     category: "News & Media",
-    logo: "/clipeone/websites/24-hour-news-online.png",
+    logo: "/clipeone/websites/24-hour-news-online.webp",
   },
   {
     name: "Volta Tourism Hub",
     url: "https://voltatourismhub.com/",
     domain: "voltatourismhub.com",
     category: "Tourism",
-    logo: "/clipeone/websites/volta-tourism-hub.jpg",
+    logo: "/clipeone/websites/volta-tourism-hub.webp",
   },
   {
     name: "Fafaa Fm",
     url: "https://fafaafmonline.com/",
     domain: "fafaafmonline.com",
     category: "Faith",
-    logo: "/clipeone/websites/fafaa-fm.jpg",
+    logo: "/clipeone/websites/fafaa-fm.webp",
   },
   {
     name: "Duamenefa Foundation",
     url: "https://duamenefafoundation.org/",
     domain: "duamenefafoundation.org",
     category: "Foundation",
-    logo: "/clipeone/websites/duamenefa-foundation.jpg",
+    logo: "/clipeone/websites/duamenefa-foundation.webp",
   },
   {
     name: "JKarl Excellence Ventures",
     domain: "Coming soon",
     category: "Construction",
     underConstruction: true,
-    logo: "/clipeone/websites/jkarl-excellence-ventures.png",
+    logo: "/clipeone/websites/jkarl-excellence-ventures.webp",
   },
 ];
 
@@ -138,7 +138,7 @@ const PLATFORMS: WebsiteEntry[] = [
 const PLATFORM_IMAGES: PlatformImage[] = [
   {
     name: "ClipeGov RMS",
-    image: "/clipeone/hero-screenshot.png",
+    image: "/clipeone/hero-screenshot.webp",
     alt: "ClipeGov RMS login screen deployed for Kpando Municipal Assembly",
     captionTitle: "ClipeGov RMS",
     captionSub: "Revenue Management System · Kpando Municipal Assembly",
@@ -147,7 +147,7 @@ const PLATFORM_IMAGES: PlatformImage[] = [
   },
   {
     name: "Dwellers",
-    image: "/clipeone/platform-2.png",
+    image: "/clipeone/platform-2.webp",
     alt: "Dwellers construction marketplace homepage — Find. Buy. Build.",
     captionTitle: "Dwellers",
     captionSub: "Construction marketplace for Ghana · Find. Buy. Build.",

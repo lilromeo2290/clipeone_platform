@@ -27,7 +27,7 @@ export function Sidebar() {
           aria-label="Visit Clipe Consult website"
         >
           <img
-            src="/clipeone/clipe-consult-logo.png"
+            src="/clipeone/clipe-consult-logo.webp"
             alt="Clipe Consult — Building Innovations | Engineering Excellence"
             width={354}
             height={177}

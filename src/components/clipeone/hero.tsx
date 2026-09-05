@@ -30,7 +30,7 @@ const SLIDES: Slide[] = [
     primary: "Explore Websites & Platforms",
     secondary: "How It Works",
     image: {
-      src: "/clipeone/hero-image.png",
+      src: "/clipeone/hero-image.webp",
       alt: "Clipe Consult headquarters — modern corporate office building",
       captionTitle: "Clipe Consult · Head Office",
       captionSub: "Home of the ClipeOne Platform",
@@ -48,7 +48,7 @@ const SLIDES: Slide[] = [
     primary: "Browse Categories",
     secondary: "Watch Demo",
     image: {
-      src: "/clipeone/hero-monitor.png",
+      src: "/clipeone/hero-monitor.webp",
       alt: "Code editor building a Clipe Consult website in real time",
       captionTitle: "Built by Developers",
       captionSub: "Real code, live preview, ship in minutes",
@@ -66,7 +66,7 @@ const SLIDES: Slide[] = [
     primary: "See Live Deployment",
     secondary: "Case Studies",
     image: {
-      src: "/clipeone/hero-screenshot.png",
+      src: "/clipeone/hero-screenshot.webp",
       alt: "ClipeGov RMS login screen deployed for Kpando Municipal Assembly",
       captionTitle: "Kpando Municipal Assembly",
       captionSub: "Live ClipeGov RMS deployment · V1.0",
@@ -84,7 +84,7 @@ const SLIDES: Slide[] = [
     primary: "Get Directions",
     secondary: "Office Hours",
     image: {
-      src: "/clipeone/hero-dashboard.png",
+      src: "/clipeone/hero-dashboard.webp",
       alt: "Clipe Consult office reception area with welcome signage and tagline",
       captionTitle: "Clipe Consult · Reception",
       captionSub: "Technology · People · Better Lives",
@@ -102,7 +102,7 @@ const SLIDES: Slide[] = [
     primary: "Meet the Team",
     secondary: "Our Story",
     image: {
-      src: "/clipeone/hero-cc.png",
+      src: "/clipeone/hero-cc.webp",
       alt: "Clipe Consult CEO office interior with branding and Secure Connect Grow tagline",
       captionTitle: "Clipe Consult · CEO Office",
       captionSub: "Secure · Connect · Grow",
@@ -120,7 +120,7 @@ const SLIDES: Slide[] = [
     primary: "Security Overview",
     secondary: "Compliance",
     image: {
-      src: "/clipeone/hero-monitor.png",
+      src: "/clipeone/hero-monitor.webp",
       alt: "Code editor showing the secure ClipeOne codebase",
       captionTitle: "Engineered for Trust",
       captionSub: "Audited code, monitored 24/7",
@@ -262,7 +262,7 @@ function HeroImage({ slide, active }: { slide: Slide; active: number }) {
           {/* Corner badge — logo + name */}
           <div className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1f3d]/70 px-3 py-1.5 backdrop-blur-md">
             <img
-              src="/clipeone/logo.png"
+              src="/clipeone/logo.webp"
               alt=""
               width={20}
               height={20}

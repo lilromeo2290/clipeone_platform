@@ -29,7 +29,7 @@ const APPS: App[] = [
     status: "Active",
     href: "https://rms.clipeconsult.com/",
     external: true,
-    preview: "/clipeone/apps/RMS.png",
+    preview: "/clipeone/apps/RMS.webp",
     previewAlt: "ClipeGov RMS login screen",
   },
   {
@@ -39,7 +39,7 @@ const APPS: App[] = [
     color: "#059669",
     status: "Pending",
     href: "#",
-    preview: "/clipeone/apps/Acount.png",
+    preview: "/clipeone/apps/Acount.webp",
     previewAlt: "ClipeBooks accounting application login screen",
   },
   {
@@ -49,7 +49,7 @@ const APPS: App[] = [
     color: "#dc2626",
     status: "Pending",
     href: "#",
-    preview: "/clipeone/apps/CRM.png",
+    preview: "/clipeone/apps/CRM.webp",
     previewAlt: "ClipeCRM customer relationship management application login screen",
   },
   {
@@ -59,7 +59,7 @@ const APPS: App[] = [
     color: "#0d9488",
     status: "Pending",
     href: "#",
-    preview: "/clipeone/apps/school.png",
+    preview: "/clipeone/apps/school.webp",
     previewAlt: "ClipeSchool management system login screen",
   },
 ];

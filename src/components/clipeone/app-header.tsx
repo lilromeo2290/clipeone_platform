@@ -24,7 +24,7 @@ export function AppHeader() {
           className="flex shrink-0 items-center gap-2.5"
         >
           <img
-            src="/clipeone/logo.png"
+            src="/clipeone/logo.webp"
             alt="ClipeOne logo"
             width={40}
             height={40}
