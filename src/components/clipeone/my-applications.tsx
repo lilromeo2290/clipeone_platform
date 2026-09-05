@@ -27,8 +27,8 @@ const APPS: App[] = [
     color: "#1e3a8a",
     status: "Active",
     href: "https://rms.clipeconsult.com/",
-    preview: "/clipeone/apps/RMS.webp",
-    previewAlt: "ClipeGov RMS login screen",
+    preview: "/clipeone/apps/rms-logo.webp",
+    previewAlt: "ClipeGov RMS — Revenue Management System logo",
   },
   {
     name: "ClipeBooks",
